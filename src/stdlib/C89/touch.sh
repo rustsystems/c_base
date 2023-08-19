@@ -1,0 +1,15 @@
+touch assert.h
+touch ctype.h
+touch errno.h
+touch float.h
+touch limits.h
+touch locale.h
+touch math.h
+touch setjmp.h
+touch signal.h
+touch stdarg.h
+touch stddef.h
+touch stdio.h
+touch stdlib.h
+touch string.h
+touch time.h
