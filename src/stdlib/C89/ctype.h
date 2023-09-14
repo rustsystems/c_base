@@ -1,14 +1,11 @@
-Page
-Discussion
-View
-Edit
-History
-ads via Carbon
-Get 50% off Slack Pro. Slack helps you stay organized, save time & get more done.
-ADS VIA CARBON
+
 Null-terminated byte strings
  C Strings library Null-terminated byte strings 
-A null-terminated byte string (NTBS) is a sequence of nonzero bytes followed by a byte with value zero (the terminating null character). Each byte in a byte string encodes one character of some character set. For example, the character array {'\x63','\x61','\x74','\0'} is an NTBS holding the string "cat" in ASCII encoding.
+A null-terminated byte string (NTBS) is a sequence of nonzero bytes followed by a 
+byte with value zero (the terminating null character). Each byte in a byte string 
+encodes one character of some character set. For example, the 
+character array {'\x63','\x61','\x74','\0'} is an NTBS holding 
+the string "cat" in ASCII encoding.
 
 Functions
 Character classification
