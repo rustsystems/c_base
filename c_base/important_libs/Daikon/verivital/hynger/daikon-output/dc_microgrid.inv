@@ -1,0 +1,179 @@
+Daikon version 5.2.8, released July 1, 2015; http://plse.cs.washington.edu/daikon.
+Reading declaration files [11:36:02 AM]:                                                                                                                                                                                                                               Processing trace data; reading 1 dtrace file:
+[11:36:03 AM]: Reading ..\daikon-output\output_dc_microgrid.dtrace (line 427016[11:36:04 AM]: Finished reading ..\daikon-output\output_dc_microgrid.dtrace    
+                                                                               ===========================================================================
+..Converter1:::ENTER
+::xpi1_out one of { 0.50993, 0.50999, 0.51005 }
+::xmc1_out == 2.401
+::time < ::iL1_out
+::time < ::xpi1_out
+::time != ::xvo1_out
+::time < ::xmc1_out
+::time < ::vC1_out
+::time != ::xpu1_out
+::time != ::x_in1
+::iL1_out > ::xi1_out
+::iL1_out > ::xpi1_out
+::iL1_out > ::xvo1_out
+::iL1_out > ::xmc1_out
+::iL1_out < ::vC1_out
+::iL1_out > ::xpu1_out
+::iL1_out > ::x_in1
+::xi1_out < ::xpi1_out
+::xi1_out > ::xvo1_out
+::xi1_out < ::xmc1_out
+::xi1_out < ::vC1_out
+::xi1_out > ::xpu1_out
+::xi1_out > ::x_in1
+::xpi1_out > ::xvo1_out
+::xpi1_out < ::xmc1_out
+::xpi1_out < ::vC1_out
+::xpi1_out > ::xpu1_out
+::xpi1_out > ::x_in1
+::xvo1_out < ::xmc1_out
+::xvo1_out < ::vC1_out
+::xvo1_out < ::xpu1_out
+::xvo1_out < ::x_in1
+::xmc1_out < ::vC1_out
+::xmc1_out > ::xpu1_out
+::xmc1_out > ::x_in1
+::vC1_out > ::xpu1_out
+::vC1_out > ::x_in1
+5.802843934142499E15 * ::iL1_out + 1.1659847745013369E22 * ::xi1_out + 1.50487086025779277E18 * ::vC1_out - 2.868232815898616E20 == 0
+===========================================================================
+..Converter1:::EXIT
+::time == orig(::time)
+::iL1_out == orig(::iL1_out)
+::xi1_out == orig(::xi1_out)
+::xpi1_out == orig(::xpi1_out)
+::xvo1_out == orig(::xvo1_out)
+::xmc1_out == orig(::xmc1_out)
+::vC1_out == orig(::vC1_out)
+::xpu1_out == orig(::xpu1_out)
+::x_in1 == orig(::x_in1)
+::xpi1_out one of { 0.50993, 0.50999, 0.51005 }
+::xmc1_out == 2.401
+::time < ::iL1_out
+::time < ::xpi1_out
+::time != ::xvo1_out
+::time < ::xmc1_out
+::time < ::vC1_out
+::time != ::xpu1_out
+::time != ::x_in1
+::iL1_out > ::xi1_out
+::iL1_out > ::xpi1_out
+::iL1_out > ::xvo1_out
+::iL1_out > ::xmc1_out
+::iL1_out < ::vC1_out
+::iL1_out > ::xpu1_out
+::iL1_out > ::x_in1
+::xi1_out < ::xpi1_out
+::xi1_out > ::xvo1_out
+::xi1_out < ::xmc1_out
+::xi1_out < ::vC1_out
+::xi1_out > ::xpu1_out
+::xi1_out > ::x_in1
+::xpi1_out > ::xvo1_out
+::xpi1_out < ::xmc1_out
+::xpi1_out < ::vC1_out
+::xpi1_out > ::xpu1_out
+::xpi1_out > ::x_in1
+::xvo1_out < ::xmc1_out
+::xvo1_out < ::vC1_out
+::xvo1_out < ::xpu1_out
+::xvo1_out < ::x_in1
+::xmc1_out < ::vC1_out
+::xmc1_out > ::xpu1_out
+::xmc1_out > ::x_in1
+::vC1_out > ::xpu1_out
+::vC1_out > ::x_in1
+5.802843934142499E15 * ::iL1_out + 1.1659847745013369E22 * ::xi1_out + 1.50487086025779277E18 * ::vC1_out - 2.868232815898616E20 == 0
+===========================================================================
+..Converter2:::ENTER
+::xpi2_out one of { 0.50993, 0.50999, 0.51005 }
+::xmc2_out == 2.401
+::time < ::iL2_out
+::time < ::vC2_out
+::time != ::xpu2_out
+::time != ::xvo2_out
+::time < ::xpi2_out
+::time < ::xmc2_out
+::time != ::x_in1
+::iL2_out < ::vC2_out
+::iL2_out > ::xpu2_out
+::iL2_out > ::xvo2_out
+::iL2_out > ::xpi2_out
+::iL2_out > ::xmc2_out
+::iL2_out > ::xi2_out
+::iL2_out > ::x_in1
+::vC2_out > ::xpu2_out
+::vC2_out > ::xvo2_out
+::vC2_out > ::xpi2_out
+::vC2_out > ::xmc2_out
+::vC2_out > ::xi2_out
+::vC2_out > ::x_in1
+::xpu2_out > ::xvo2_out
+::xpu2_out < ::xpi2_out
+::xpu2_out < ::xmc2_out
+::xpu2_out < ::xi2_out
+::xvo2_out < ::xpi2_out
+::xvo2_out < ::xmc2_out
+::xvo2_out < ::xi2_out
+::xvo2_out < ::x_in1
+::xpi2_out < ::xmc2_out
+::xpi2_out > ::xi2_out
+::xpi2_out > ::x_in1
+::xmc2_out > ::xi2_out
+::xmc2_out > ::x_in1
+::xi2_out > ::x_in1
+5.802843934142499E15 * ::iL2_out + 1.50487086025779277E18 * ::vC2_out + 1.1659847745013369E22 * ::xi2_out - 2.868232815898616E20 == 0
+===========================================================================
+..Converter2:::EXIT
+::time == orig(::time)
+::iL2_out == orig(::iL2_out)
+::vC2_out == orig(::vC2_out)
+::xpu2_out == orig(::xpu2_out)
+::xvo2_out == orig(::xvo2_out)
+::xpi2_out == orig(::xpi2_out)
+::xmc2_out == orig(::xmc2_out)
+::xi2_out == orig(::xi2_out)
+::x_in1 == orig(::x_in1)
+::xpi2_out one of { 0.50993, 0.50999, 0.51005 }
+::xmc2_out == 2.401
+::time < ::iL2_out
+::time < ::vC2_out
+::time != ::xpu2_out
+::time != ::xvo2_out
+::time < ::xpi2_out
+::time < ::xmc2_out
+::time != ::x_in1
+::iL2_out < ::vC2_out
+::iL2_out > ::xpu2_out
+::iL2_out > ::xvo2_out
+::iL2_out > ::xpi2_out
+::iL2_out > ::xmc2_out
+::iL2_out > ::xi2_out
+::iL2_out > ::x_in1
+::vC2_out > ::xpu2_out
+::vC2_out > ::xvo2_out
+::vC2_out > ::xpi2_out
+::vC2_out > ::xmc2_out
+::vC2_out > ::xi2_out
+::vC2_out > ::x_in1
+::xpu2_out > ::xvo2_out
+::xpu2_out < ::xpi2_out
+::xpu2_out < ::xmc2_out
+::xpu2_out < ::xi2_out
+::xvo2_out < ::xpi2_out
+::xvo2_out < ::xmc2_out
+::xvo2_out < ::xi2_out
+::xvo2_out < ::x_in1
+::xpi2_out < ::xmc2_out
+::xpi2_out > ::xi2_out
+::xpi2_out > ::x_in1
+::xmc2_out > ::xi2_out
+::xmc2_out > ::x_in1
+::xi2_out > ::x_in1
+5.802843934142499E15 * ::iL2_out + 1.50487086025779277E18 * ::vC2_out + 1.1659847745013369E22 * ::xi2_out - 2.868232815898616E20 == 0
+Exiting Daikon.
+                                                                               

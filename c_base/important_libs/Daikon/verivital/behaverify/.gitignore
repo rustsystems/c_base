@@ -1,0 +1,13 @@
+*~
+*.svg
+*.dot
+*.fuse
+*.goutputstream-*
+**/__pycache__/**
+__pycache__/
+IGNORE/
+temp_output/**
+dist-newstyle/
+gen_files/
+**/nuXmv
+moved/

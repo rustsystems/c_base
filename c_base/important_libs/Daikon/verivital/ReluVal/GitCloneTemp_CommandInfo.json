@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/ReluVal undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/ReluVal",
+    "repo": "https://github.com/verivital/ReluVal",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/ReluVal",
+    "startTime": "2023-09-17T18:04:26.871Z",
+    "endTime": "2023-09-17T18:04:30.348Z",
+    "childProcessPid": 19622,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--ReluVal--19622",
+    "executionErrors": []
+}

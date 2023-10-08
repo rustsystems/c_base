@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/m2nist undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/m2nist",
+    "repo": "https://github.com/verivital/m2nist",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/m2nist",
+    "startTime": "2023-09-17T18:13:50.638Z",
+    "endTime": "2023-09-17T18:19:07.442Z",
+    "childProcessPid": 20299,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--m2nist--20299",
+    "executionErrors": []
+}

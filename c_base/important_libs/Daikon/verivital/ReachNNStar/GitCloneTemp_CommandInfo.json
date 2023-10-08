@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/ReachNNStar undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/ReachNNStar",
+    "repo": "https://github.com/verivital/ReachNNStar",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/ReachNNStar",
+    "startTime": "2023-09-17T18:04:02.197Z",
+    "endTime": "2023-09-17T18:04:25.795Z",
+    "childProcessPid": 19586,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--ReachNNStar--19586",
+    "executionErrors": []
+}

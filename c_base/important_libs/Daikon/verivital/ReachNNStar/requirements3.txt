@@ -1,0 +1,5 @@
+tensorflow
+sympy
+mpi4py
+scipy
+h5py

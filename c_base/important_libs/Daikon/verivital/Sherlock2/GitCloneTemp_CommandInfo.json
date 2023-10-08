@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/Sherlock2 undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Sherlock2",
+    "repo": "https://github.com/verivital/Sherlock2",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Sherlock2",
+    "startTime": "2023-09-17T18:08:24.745Z",
+    "endTime": "2023-09-17T18:08:26.585Z",
+    "childProcessPid": 19909,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--Sherlock2--19909",
+    "executionErrors": []
+}

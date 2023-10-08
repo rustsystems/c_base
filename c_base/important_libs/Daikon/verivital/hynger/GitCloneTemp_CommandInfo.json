@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/hynger undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hynger",
+    "repo": "https://github.com/verivital/hynger",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hynger",
+    "startTime": "2023-09-17T18:13:22.195Z",
+    "endTime": "2023-09-17T18:13:28.071Z",
+    "childProcessPid": 20237,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--hynger--20237",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/Tello-Python undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Tello-Python",
+    "repo": "https://github.com/verivital/Tello-Python",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Tello-Python",
+    "startTime": "2023-09-17T18:08:26.585Z",
+    "endTime": "2023-09-17T18:08:28.801Z",
+    "childProcessPid": 19917,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--Tello-Python--19917",
+    "executionErrors": []
+}

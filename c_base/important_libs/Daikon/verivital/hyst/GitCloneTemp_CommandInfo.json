@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/hyst undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hyst",
+    "repo": "https://github.com/verivital/hyst",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hyst",
+    "startTime": "2023-09-17T18:13:28.072Z",
+    "endTime": "2023-09-17T18:13:46.948Z",
+    "childProcessPid": 20248,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--hyst--20248",
+    "executionErrors": []
+}

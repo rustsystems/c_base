@@ -1,0 +1,84 @@
+MODULE main
+	CONSTANTS
+		success, failure, running, invalid;
+	DEFINE
+		resume_from_here_in_subtree__y_do := -3;
+		y_do.active := TRUE;
+		--START OF BLACKBOARD DEFINITIONS
+		var_test_stage_1 := 
+			case
+				!(y_do.active) : var_test;
+				TRUE : abs(var_test);
+			esac;
+		meh_stage_1 := [meh_stage_1_index_0, meh_stage_1_index_1, meh_stage_1_index_2, meh_stage_1_index_3];
+		meh_stage_1_index_0 :=
+			case
+				index = 0 :
+					case
+						meh[0] > meh[1] : min(3, meh[1] + 1);
+						TRUE : 1;
+					esac;
+				TRUE : meh[0];
+			esac;
+		meh_stage_1_index_1 :=
+			case
+				index = 0 :
+					case
+						meh[0] > meh[1] : min(3, meh[1] + 1);
+						TRUE : 1;
+					esac;
+				TRUE : meh[0];
+			esac;
+		meh_stage_1_index_2 :=
+			case
+				index = 0 :
+					case
+						meh[0] > meh[1] : min(3, meh[1] + 1);
+						TRUE : 1;
+					esac;
+				TRUE : meh[0];
+			esac;
+		meh_stage_1_index_3 :=
+			case
+				index = 0 :
+					case
+						meh[0] > meh[1] : min(3, meh[1] + 1);
+						TRUE : 1;
+					esac;
+				TRUE : meh[0];
+			esac;
+		--END OF BLACKBOARD DEFINITIONS
+	VAR
+		node_names : define_nodes;
+		y_do : success_DEFAULT_module();
+		--START OF BLACKBOARD VARIABLES DECLARATION
+		var_test : 0..10;
+		meh : array 0..3 of 0..3;
+		index : 0..3;
+		--END OF BLACKBOARD VARIABLES DECLARATION
+	ASSIGN
+		--START OF BLACKBOARD VARIABLES INITIALIZATION
+		init(var_test) := 
+			case
+				TRUE : 0;
+			esac;
+		init(meh[0]) := 0;
+		init(meh[1]) := 1;
+		init(meh[2]) := 2;
+		init(meh[3]) := 3;
+		next(meh) := meh_stage_1;
+		--END OF BLACKBOARD VARIABLES INITIALIZATION
+		--START OF BLACKBOARD VARIABLES TRANSITION
+		next(var_test) := var_test_stage_1;
+		--END OF BLACKBOARD VARIABLES TRANSITION
+
+
+MODULE define_nodes
+	DEFINE
+		y_do := 0;
+MODULE success_DEFAULT_module
+	CONSTANTS
+		success, failure, running, invalid;
+	DEFINE
+		status := active ? internal_status : invalid;
+		internal_status := success;

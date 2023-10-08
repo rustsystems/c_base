@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/acasxu_closed_loop_sim undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/acasxu_closed_loop_sim",
+    "repo": "https://github.com/verivital/acasxu_closed_loop_sim",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/acasxu_closed_loop_sim",
+    "startTime": "2023-09-17T18:10:39.772Z",
+    "endTime": "2023-09-17T18:10:40.562Z",
+    "childProcessPid": 20060,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--acasxu_closed_loop_sim--20060",
+    "executionErrors": []
+}

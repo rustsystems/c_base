@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/hyst-benchmark undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hyst-benchmark",
+    "repo": "https://github.com/verivital/hyst-benchmark",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hyst-benchmark",
+    "startTime": "2023-09-17T18:13:46.950Z",
+    "endTime": "2023-09-17T18:13:47.586Z",
+    "childProcessPid": 20284,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--hyst-benchmark--20284",
+    "executionErrors": []
+}

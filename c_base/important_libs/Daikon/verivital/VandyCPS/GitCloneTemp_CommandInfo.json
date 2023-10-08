@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/VandyCPS undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/VandyCPS",
+    "repo": "https://github.com/verivital/VandyCPS",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/VandyCPS",
+    "startTime": "2023-09-17T18:10:38.283Z",
+    "endTime": "2023-09-17T18:10:39.771Z",
+    "childProcessPid": 20055,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--VandyCPS--20055",
+    "executionErrors": []
+}

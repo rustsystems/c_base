@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/bibtexbrowser undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/bibtexbrowser",
+    "repo": "https://github.com/verivital/bibtexbrowser",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/bibtexbrowser",
+    "startTime": "2023-09-17T18:11:39.502Z",
+    "endTime": "2023-09-17T18:11:40.348Z",
+    "childProcessPid": 20131,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--bibtexbrowser--20131",
+    "executionErrors": []
+}

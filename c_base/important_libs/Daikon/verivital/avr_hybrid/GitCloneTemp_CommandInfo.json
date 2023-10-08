@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/avr_hybrid undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/avr_hybrid",
+    "repo": "https://github.com/verivital/avr_hybrid",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/avr_hybrid",
+    "startTime": "2023-09-17T18:10:40.563Z",
+    "endTime": "2023-09-17T18:10:42.013Z",
+    "childProcessPid": 20066,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--avr_hybrid--20066",
+    "executionErrors": []
+}

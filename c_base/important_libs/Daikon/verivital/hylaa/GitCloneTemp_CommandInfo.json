@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/hylaa undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hylaa",
+    "repo": "https://github.com/verivital/hylaa",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/hylaa",
+    "startTime": "2023-09-17T18:13:19.640Z",
+    "endTime": "2023-09-17T18:13:22.194Z",
+    "childProcessPid": 20228,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--hylaa--20228",
+    "executionErrors": []
+}
