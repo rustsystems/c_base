@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/ARCH-COMP2020 undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/ARCH-COMP2020",
+    "repo": "https://github.com/verivital/ARCH-COMP2020",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/ARCH-COMP2020",
+    "startTime": "2023-09-17T17:57:13.856Z",
+    "endTime": "2023-09-17T17:57:15.881Z",
+    "childProcessPid": 19221,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--ARCH-COMP2020--19221",
+    "executionErrors": []
+}

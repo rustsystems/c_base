@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/AcasXu undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/AcasXu",
+    "repo": "https://github.com/verivital/AcasXu",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/AcasXu",
+    "startTime": "2023-09-17T17:57:22.633Z",
+    "endTime": "2023-09-17T17:58:40.210Z",
+    "childProcessPid": 19245,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--AcasXu--19245",
+    "executionErrors": []
+}

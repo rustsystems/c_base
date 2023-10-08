@@ -1,0 +1,9 @@
+*.gif
+*.png
+*.mat
+*.asp
+*.mp4
+
+# Ignore LQR Optimization
+OptControl/
+Graphics/
