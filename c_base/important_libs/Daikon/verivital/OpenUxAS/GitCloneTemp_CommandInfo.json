@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/OpenUxAS undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/OpenUxAS",
+    "repo": "https://github.com/verivital/OpenUxAS",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/OpenUxAS",
+    "startTime": "2023-09-17T18:03:51.244Z",
+    "endTime": "2023-09-17T18:03:59.961Z",
+    "childProcessPid": 19561,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--OpenUxAS--19561",
+    "executionErrors": []
+}

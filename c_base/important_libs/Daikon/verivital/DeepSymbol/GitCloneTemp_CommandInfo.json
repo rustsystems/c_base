@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/DeepSymbol undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/DeepSymbol",
+    "repo": "https://github.com/verivital/DeepSymbol",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/DeepSymbol",
+    "startTime": "2023-09-17T18:00:18.825Z",
+    "endTime": "2023-09-17T18:00:19.828Z",
+    "childProcessPid": 19376,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--DeepSymbol--19376",
+    "executionErrors": []
+}

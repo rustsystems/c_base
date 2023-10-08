@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/MSS undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/MSS",
+    "repo": "https://github.com/verivital/MSS",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/MSS",
+    "startTime": "2023-09-17T18:02:26.291Z",
+    "endTime": "2023-09-17T18:03:36.542Z",
+    "childProcessPid": 19467,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--MSS--19467",
+    "executionErrors": []
+}

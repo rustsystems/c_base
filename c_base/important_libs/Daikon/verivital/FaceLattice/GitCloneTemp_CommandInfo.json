@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/FaceLattice undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/FaceLattice",
+    "repo": "https://github.com/verivital/FaceLattice",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/FaceLattice",
+    "startTime": "2023-09-17T18:02:23.424Z",
+    "endTime": "2023-09-17T18:02:25.464Z",
+    "childProcessPid": 19452,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--FaceLattice--19452",
+    "executionErrors": []
+}

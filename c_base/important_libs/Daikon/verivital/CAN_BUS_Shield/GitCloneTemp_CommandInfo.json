@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/CAN_BUS_Shield undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/CAN_BUS_Shield",
+    "repo": "https://github.com/verivital/CAN_BUS_Shield",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/CAN_BUS_Shield",
+    "startTime": "2023-09-17T17:59:20.645Z",
+    "endTime": "2023-09-17T17:59:21.850Z",
+    "childProcessPid": 19325,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--CAN_BUS_Shield--19325",
+    "executionErrors": []
+}

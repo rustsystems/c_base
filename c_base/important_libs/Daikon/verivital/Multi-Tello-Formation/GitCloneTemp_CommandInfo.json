@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/Multi-Tello-Formation undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Multi-Tello-Formation",
+    "repo": "https://github.com/verivital/Multi-Tello-Formation",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Multi-Tello-Formation",
+    "startTime": "2023-09-17T18:03:36.544Z",
+    "endTime": "2023-09-17T18:03:40.088Z",
+    "childProcessPid": 19500,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--Multi-Tello-Formation--19500",
+    "executionErrors": []
+}

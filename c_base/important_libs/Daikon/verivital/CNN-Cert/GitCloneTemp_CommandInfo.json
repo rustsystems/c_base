@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/CNN-Cert undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/CNN-Cert",
+    "repo": "https://github.com/verivital/CNN-Cert",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/CNN-Cert",
+    "startTime": "2023-09-17T17:59:21.851Z",
+    "endTime": "2023-09-17T17:59:36.637Z",
+    "childProcessPid": 19330,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--CNN-Cert--19330",
+    "executionErrors": []
+}

@@ -1,0 +1,107 @@
+version: '2.3'
+
+#launch all the containers for the f1tenth simulation
+services: 
+  #create a rosmaster so that all containers can talk to each other properly
+  rosmaster: 
+    image: ros_test
+    build: .
+    container_name: rosmaster
+    command: /bin/bash -c 'source devel/setup.bash && roscore'
+#launch the f1tenth container and display the gazebo simulation using nvidia drivers
+  f1tenth:
+    image: ros_test
+    build: .
+    container_name: f1tenth
+    runtime: nvidia
+    #make sure that this container is started after the rosmaster by using the depends clause
+    depends_on:
+      - "rosmaster"
+    #declare environment variables need to display the GUI applications as well as getting the ros containers to talk to each other
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - "ROS_HOSTNAME=f1tenth"
+      - "ROS_MASTER_URI=http://rosmaster:11311" 
+    #mount the existing host folders in the Docker container so that we don't have to rebuild the image to compile the source images
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ros-logs:/root/.ros/
+      - ./f110-fall2018-skeletons:/home/catkin_ws/src/f110-fall2018-skeletons
+      - ./a_stars_pure_pursuit:/home/catkin_ws/src/a_stars_pure_pursuit
+      - ./hector_slam:/home/catkin_ws/src/hector_slam
+      - ./particle_filter:/home/catkin_ws/src/particle_filter
+      - gazebo-files:/root/.gazebo/
+    command: /bin/bash -c 'source devel/setup.bash && roslaunch race docker.launch'
+  
+  #create a seperate container for the rviz simulations
+  rviz:
+    image: ros_test
+    build: .
+    container_name: rviz
+    #allow the container to make use of the GPU
+    runtime: nvidia
+    #declare which containers rviz depends on
+    depends_on:
+      - "rosmaster"
+      - "f1tenth"
+      - "particle_filter"
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - "ROS_HOSTNAME=rviz"
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+    #most of the rviz stuff depends on the f110-fall-2018 skeletons stuff so mount that volume   
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ./f110-fall2018-skeletons:/home/catkin_ws/src/f110-fall2018-skeletons
+    command: /bin/bash -c 'source devel/setup.bash && roslaunch race docker_rviz.launch'
+  
+  #launch keyboard node
+  keyboard: 
+    image: ros_test
+    build: .
+    container_name: keyboard
+    depends_on: 
+      - "rosmaster"
+      - "f1tenth"
+    stdin_open: true
+    tty: true
+    environment:
+      - "ROS_HOSTNAME=keyboard"
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+    command: /bin/bash -c 'source devel/setup.bash && bash' 
+
+  #launch the particle filter container
+  particle_filter:
+    image: ros_test
+    build: . 
+    container_name: particle_filter
+    depends_on: 
+      - "rosmaster"
+      - "f1tenth"
+    environment:
+      - "ROS_HOSTNAME=particle_filter"
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+    command: /bin/bash -c 'source devel/setup.bash && roslaunch particle_filter localize.launch'
+  
+  #launch the the pure pursuit algorithm
+  pure_pursuit:
+    image: ros_test
+    build: .
+    container_name: pure_pursuit
+    depends_on: 
+      - "particle_filter"
+      - "f1tenth"
+      - "rviz"
+    environment:
+      - "ROS_HOSTNAME=pure_pursuit"
+      - "ROS_MASTER_URI=http://rosmaster:11311"
+    command: /bin/bash -c 'source devel/setup.bash && roslaunch a_stars_pure_pursuit pure_pursuit_sim.launch'
+    
+
+  
+#declare names for the gazebo log files and ros log files which will be handled by docker
+volumes:
+  ros-logs:
+  gazebo-files:

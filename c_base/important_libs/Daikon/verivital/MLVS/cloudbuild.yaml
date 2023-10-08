@@ -1,0 +1,12 @@
+steps:
+#- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args: ["gcloud", "compute", "instances", "start", "instance-2", "--zone=europe-west2-c"]
+- name: 'alpine'
+  args: ["sleep", "30"]
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args: ["gcloud", "compute", "instances", "stop", "instance-2", "--zone=europe-west2-c"]
+- name: 'alpine'
+  id:  Hello Cloud Build
+  args: ["echo", "Hello Cloud Build"]
+ 

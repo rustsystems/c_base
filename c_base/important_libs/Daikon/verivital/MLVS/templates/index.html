@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!-- Template by quackit.com -->
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>3 Column Layout</title>
+	<style type="text/css">
+
+		/* Layout */
+		body {
+			min-width: 630px;
+		}
+
+		#container {
+			padding-left: 200px;
+			padding-right: 190px;
+		}
+		
+		#container .column {
+			position: relative;
+			float: left;
+		}
+		
+		#center {
+			padding: 10px 20px;
+			width: 100%;
+		}
+		
+		#left {
+			width: 180px;
+			padding: 0 10px;
+			right: 240px;
+			margin-left: -100%;
+		}
+		
+		#right {
+			width: 130px;
+			padding: 0 10px;
+			margin-right: -100%;
+		}
+		
+		#footer {
+			clear: both;
+		}
+		
+		/* IE hack */
+		* html #left {
+			left: 150px;
+		}
+
+		/* Make the columns the same height as each other */
+		#container {
+			overflow: hidden;
+		}
+
+		#container .column {
+			padding-bottom: 1001em;
+			margin-bottom: -1000em;
+		}
+
+		/* Fix for the footer */
+		* html body {
+			overflow: hidden;
+		}
+		
+		* html #footer-wrapper {
+			float: left;
+			position: relative;
+			width: 100%;
+			padding-bottom: 10010px;
+			margin-bottom: -10000px;
+			background: #fff;
+		}
+
+		/* Aesthetics */
+		body {
+			margin: 0;
+			padding: 0;
+			font-family:Sans-serif;
+			line-height: 1.5em;
+		}
+		
+		p {
+			color: #555;
+		}
+
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav ul a {
+			color: darkgreen;
+			text-decoration: none;
+		}
+
+		#header {
+			padding: 3.3em;
+                        width: 100%;
+                        background-image:url("/static/img/nn.jpg") ;
+			font-size: small
+                        style="font-family:verdana;"
+                        style="color:white"
+		}
+		#footer {
+			font-size: small;
+			padding: .83em;
+                        width: 100%;
+			background: #34282C;
+		}
+
+		#left {
+                        
+			background: #DAE9BC;
+		}
+		
+		#right {
+			background: #F7FDEB;
+		}
+
+		#center {
+			background: #fff;
+		}
+
+		#container .column {
+			padding-top: 1em;
+		}
+		
+	</style>
+	
+         <script>
+         function myFunction() {
+          document.write("welcome to Javatpoint"); 
+         }
+         </script>
+    <body>
+
+	<header id="header">
+         <p style="color: #FFCC00;font-size:40px;" > MLVS  </p>
+         <p style="color: #FFCC00;font-size:20px;" > Machine Learning Verification Service  </p>
+
+         </header>
+
+	<div id="container">
+
+		<main id="center" class="column">
+			<article>
+			
+				<h1 id="topPage">Why MLVS?</h1>
+				<p> No need to worry about your system configuration, operating system, dependencies installation etc</p>
+				<p> Give your network and property file - MLVS will verify for you</p>
+				<h1>How?</h1>
+				<p> Click on "Property verification" under  "Our services"</p>
+				<p> Give a <a href="#nm">network model</a> and a <a href=#pf>property file</a> and a <a href=#tm>timeout value</a> </p>
+				<p> Click on any tool to verify your network model for the given property with the given timeout value</p>
+				<h1>Output after a run</h1>
+				<p> Safe : Network is safe for the given property</p>
+				<p> Unsafe : Network is not safe for the given property</p>
+				<p> In this case, MLVS also displays falsifying inputs for which network is unsafe for the given property</p>
+				<h1 id ="nm">Network model</h1>
+				<p> Please provide your network model in Open Neural Network Exchange(.onnx) file format </p>
+                                <p> <a href="https://onnx.ai/">Please clike here to know more</a>
+				<h1 id=pf>Property file</h1>
+				<p> Please provide your property in .vnnlib fileformat </p>
+                                <p> <a href="http://www.vnnlib.org/">Please clike here to know more</a>
+				<h1 id="tm">Timeout value</h1>
+				<p> If no timeout value is given, 20 sec is taken as default value</p>
+                                <p>Go to the <a href="#topPage">top</a>.</p>
+			
+			</article>								
+		</main>
+
+		<nav id="left" class="column">
+			<h3 style="color: #041A27 ;font-size:20px;">Our Services</h3>
+			<ul >
+                              <li>  <a href="genProp" style="color: #1B6794 ;font-size:15px;">Property generation </li>
+                              <li>  <a href="verify" style="color: #1B6794 ;font-size:15px;">Property verification</a> </li>
+                              <li>  <a href="genTest" style="color: #1B6794 ;font-size:15px;">Testcase generation </a></li>
+			</ul>
+			<h3 style="color: #041A27 ;font-size:20px;">Tools </h3>
+			<ul>
+                                <li>  <a href="ffn" style="color: #1B6794 ;font-size:15px;">FFN</a> </li>
+                                <li>  <a href="nnenum" style="color: #1B6794 ;font-size:15px;">nnenum</a> </li>
+			</ul>
+
+		</nav>
+
+
+	</div>
+
+	<div id="footer-wrapper">
+		<footer id="footer">
+                <p style="color: #FFCC00;font-size:20px;">Team</p>
+                <p style="color: #FFCC00;font-size:10px;">Moumita Das - moumita.a.das@ericsson.com</p>
+                <p style="color: #FFCC00;font-size:10px;">Rajarshi Ray - raj.ray84@gmail.com</p>
+                <p style="color: #FFCC00;font-size:10px;">Swarup Kumar Mohalik - swarup.kumar.mohalik@ericsson.com </p>
+                </footer>
+	</div>
+
+</body>
+
+</html>

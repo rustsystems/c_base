@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/Neurify undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Neurify",
+    "repo": "https://github.com/verivital/Neurify",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/Neurify",
+    "startTime": "2023-09-17T18:03:43.573Z",
+    "endTime": "2023-09-17T18:03:51.243Z",
+    "childProcessPid": 19542,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--Neurify--19542",
+    "executionErrors": []
+}

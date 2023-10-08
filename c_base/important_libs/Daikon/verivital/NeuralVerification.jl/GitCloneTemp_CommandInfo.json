@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/NeuralVerification.jl undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/NeuralVerification.jl",
+    "repo": "https://github.com/verivital/NeuralVerification.jl",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/NeuralVerification.jl",
+    "startTime": "2023-09-17T18:03:42.105Z",
+    "endTime": "2023-09-17T18:03:43.572Z",
+    "childProcessPid": 19534,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--NeuralVerification.jl--19534",
+    "executionErrors": []
+}

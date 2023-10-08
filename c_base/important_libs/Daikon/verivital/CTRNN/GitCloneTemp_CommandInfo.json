@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/CTRNN undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/CTRNN",
+    "repo": "https://github.com/verivital/CTRNN",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/CTRNN",
+    "startTime": "2023-09-17T18:00:16.518Z",
+    "endTime": "2023-09-17T18:00:17.758Z",
+    "childProcessPid": 19358,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--CTRNN--19358",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/F1TenthVanderbilt undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/F1TenthVanderbilt",
+    "repo": "https://github.com/verivital/F1TenthVanderbilt",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/F1TenthVanderbilt",
+    "startTime": "2023-09-17T18:00:19.829Z",
+    "endTime": "2023-09-17T18:02:23.422Z",
+    "childProcessPid": 19381,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--F1TenthVanderbilt--19381",
+    "executionErrors": []
+}

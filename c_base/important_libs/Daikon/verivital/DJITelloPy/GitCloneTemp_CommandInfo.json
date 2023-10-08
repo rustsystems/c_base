@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/DJITelloPy undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/DJITelloPy",
+    "repo": "https://github.com/verivital/DJITelloPy",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/DJITelloPy",
+    "startTime": "2023-09-17T18:00:17.759Z",
+    "endTime": "2023-09-17T18:00:18.813Z",
+    "childProcessPid": 19371,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--DJITelloPy--19371",
+    "executionErrors": []
+}
