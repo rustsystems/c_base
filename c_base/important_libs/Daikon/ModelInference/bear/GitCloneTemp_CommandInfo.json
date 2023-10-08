@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/ModelInference/bear undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/bear",
+    "repo": "https://github.com/ModelInference/bear",
+    "targetPath": "undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/bear",
+    "startTime": "2023-09-17T18:15:01.458Z",
+    "endTime": "2023-09-17T18:15:03.040Z",
+    "childProcessPid": 20408,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--ModelInference--bear--20408",
+    "executionErrors": []
+}

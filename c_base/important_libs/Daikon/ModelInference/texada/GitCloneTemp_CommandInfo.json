@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/ModelInference/texada undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/texada",
+    "repo": "https://github.com/ModelInference/texada",
+    "targetPath": "undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/texada",
+    "startTime": "2023-09-17T18:17:36.509Z",
+    "endTime": "2023-09-17T18:17:59.373Z",
+    "childProcessPid": 20590,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--ModelInference--texada--20590",
+    "executionErrors": []
+}

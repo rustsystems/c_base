@@ -1,0 +1,15 @@
+language: java
+
+script: ./.travis-build.sh
+
+os:
+  - osx
+
+# MacOSX does not yet support switching JDK versions: https://github.com/travis-ci/travis-ci/issues/2317
+# jdk:
+#   - oraclejdk8
+# #  - oraclejdk7
+#   - openjdk7
+
+git:
+  depth: 3

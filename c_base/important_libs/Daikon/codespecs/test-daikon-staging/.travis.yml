@@ -1,0 +1,15 @@
+language: java
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y binutils-dev
+
+script: ./run-test-distribution.sh
+
+jdk:
+  - openjdk8
+  - oraclejdk11
+  - openjdk11
+
+git:
+  depth: 3

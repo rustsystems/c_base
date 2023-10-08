@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+  <meta name="theme-color" content="#c0e0ff">
+  <link rel="icon" sizes="192x192" href="../icon.png">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-26626218-3','auto');ga('send','pageview');</script>
+
+  <title>Perfume: Resource-Aware Model Inference (ASE 2014)</title>
+  <link rel="stylesheet" href="../style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../../common.css" type="text/css" media="screen" />
+</head>
+
+<body>
+  <div id="wrapper">
+  <div id="content">
+
+    <h1>Perfume (ASE 2014 supplementary content)</h1>
+
+    <div class="sectiontext">
+      This page contains supplementary content for the Perfume paper,
+      <a href="http://people.cs.umass.edu/brun/pubs/pubs/Ohmann14ase.pdf">
+      Behavioral Resource-Aware Model Inference</a>, which was published at the
+      29th IEEE/ACM International Conference on Automated Software Engineering
+      (ASE14). Learn more at the <a href="../">Perfume main page</a>.
+      <br />
+      <br />
+      All models referenced below are event-based FSMs, as Perfume currently
+      outputs models in this form. While models shown in the ASE 2014 paper
+      are state-based instead, these models could be trivially converted to
+      state-based models by pushing each node's event type into its outgoing
+      or incoming edges. The former strategy should be used if events in the
+      log were recorded as they were starting, while the latter should be
+      used if events were logged as they finished.
+    </div>
+
+    <div class="sectionhead">User study</div>
+    <div class="sectiontext">
+      You can view the full
+      <a href="./survey.html">
+        Perfume user study
+      </a>, which has been collapsed onto one page for convenience.
+    </div>
+
+    <div class="sectionhead">Modeling TCP</div>
+    <div class="sectiontext">
+      You can download the log
+      [ <a href="./log_TCP_ASE2014.txt">txt</a> ]
+      of TCP packets used as input and the resulting Perfume model
+      [ <a href="./Perfume_TCP_ASE2014.png">png</a> ], which has been
+      modified so that server-generated events are shaded.
+    </div>
+
+    <div class="sectionhead">Modeling a real estate website (comparison to BEAR)</div>
+    <div class="sectiontext">
+      You can download the inferred model in multiple formats [
+      <a href="./Perfume_BearDataSet_ASE2014.dot">dot</a>,
+      <a href="./Perfume_BearDataSet_ASE2014.png">png</a>,
+      <a href="./Perfume_BearDataSet_ASE2014.pdf">pdf</a> ]
+    </div>
+
+  </div>
+  </div>
+</body>
+</html>

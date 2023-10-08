@@ -1,0 +1,31 @@
+jobs:
+
+- job: test_daikon_staging_linux_jdk8
+  pool:
+    vmImage: 'ubuntu-latest'
+  container: mdernst/daikon-ubuntu-jdk8-plus:latest
+  steps:
+  - checkout: self
+    fetchDepth: 25
+  - bash: ./run-test-distribution.sh
+    displayName: run-test-distribution.sh
+
+- job: test_daikon_staging_linux_jdk11
+  pool:
+    vmImage: 'ubuntu-latest'
+  container: mdernst/daikon-ubuntu-jdk11-plus:latest
+  steps:
+  - checkout: self
+    fetchDepth: 25
+  - bash: ./run-test-distribution.sh
+    displayName: run-test-distribution.sh
+
+- job: test_daikon_staging_macos
+  pool:
+    vmImage: 'macos-latest'
+  steps:
+  - checkout: self
+    fetchDepth: 25
+  - bash: ./run-test-distribution.sh
+    displayName: run-test-distribution.sh
+

@@ -1,0 +1,15 @@
+With/without --allow_same_bindings, instantiations:
+G(a -> XFb)
+G(a -> XFe0)
+G(a -> XFe1)
+G(a -> XFe2)
+G(a -> XFe3)
+G(a -> XFe5)
+G(a -> XFe6)
+G(a -> XFe7)
+G(a -> XFe8)
+
+---
+
+NOTE: a weaker LTL specification, G(x -> Fy) would lead to redundant
+instantiations, i.e., G(e0 -> Fe0) with --allow_same_bindings

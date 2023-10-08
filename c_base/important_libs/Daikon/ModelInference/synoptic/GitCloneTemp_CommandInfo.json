@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/ModelInference/synoptic undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/synoptic",
+    "repo": "https://github.com/ModelInference/synoptic",
+    "targetPath": "undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/synoptic",
+    "startTime": "2023-09-17T18:15:50.550Z",
+    "endTime": "2023-09-17T18:17:36.508Z",
+    "childProcessPid": 20466,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--ModelInference--synoptic--20466",
+    "executionErrors": []
+}

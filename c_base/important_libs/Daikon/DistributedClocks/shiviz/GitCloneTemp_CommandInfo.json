@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/shiviz undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/shiviz",
+    "repo": "https://github.com/DistributedClocks/shiviz",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/shiviz",
+    "startTime": "2023-09-17T18:08:03.184Z",
+    "endTime": "2023-09-17T18:08:05.671Z",
+    "childProcessPid": 19845,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--shiviz--19845",
+    "executionErrors": []
+}

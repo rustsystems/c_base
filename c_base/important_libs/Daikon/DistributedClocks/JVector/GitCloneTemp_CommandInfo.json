@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/JVector undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/JVector",
+    "repo": "https://github.com/DistributedClocks/JVector",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/JVector",
+    "startTime": "2023-09-17T18:07:50.369Z",
+    "endTime": "2023-09-17T18:07:51.441Z",
+    "childProcessPid": 19815,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--JVector--19815",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/CVector undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/CVector",
+    "repo": "https://github.com/DistributedClocks/CVector",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/CVector",
+    "startTime": "2023-09-17T18:07:45.997Z",
+    "endTime": "2023-09-17T18:07:47.228Z",
+    "childProcessPid": 19787,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--CVector--19787",
+    "executionErrors": []
+}

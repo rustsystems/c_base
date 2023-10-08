@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/ModelInference/SpecForge undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/SpecForge",
+    "repo": "https://github.com/ModelInference/SpecForge",
+    "targetPath": "undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/SpecForge",
+    "startTime": "2023-09-17T18:14:29.336Z",
+    "endTime": "2023-09-17T18:15:01.455Z",
+    "childProcessPid": 20380,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--ModelInference--SpecForge--20380",
+    "executionErrors": []
+}

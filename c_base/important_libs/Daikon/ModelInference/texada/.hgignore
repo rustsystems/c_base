@@ -1,0 +1,18 @@
+# Use the glob syntax:
+syntax: glob
+
+uservars.mk
+texada-src/bin/*
+texada
+texadatest
+texada-smt
+texadatest-smt
+.cproject
+.cproject~
+
+*~
+*.orig
+
+# Ignore generated .class files for dining philosophers
+traces/dining-philosophers/bin/
+traces/sleeping-barber/bin/

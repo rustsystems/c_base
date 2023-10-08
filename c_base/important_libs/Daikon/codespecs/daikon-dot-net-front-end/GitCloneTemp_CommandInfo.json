@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/codespecs/daikon-dot-net-front-end undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/daikon-dot-net-front-end",
+    "repo": "https://github.com/codespecs/daikon-dot-net-front-end",
+    "targetPath": "undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/daikon-dot-net-front-end",
+    "startTime": "2023-09-17T18:02:08.977Z",
+    "endTime": "2023-09-17T18:02:14.997Z",
+    "childProcessPid": 19432,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--codespecs--daikon-dot-net-front-end--19432",
+    "executionErrors": []
+}

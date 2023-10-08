@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/codespecs/commons-bcel undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/commons-bcel",
+    "repo": "https://github.com/codespecs/commons-bcel",
+    "targetPath": "undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/commons-bcel",
+    "startTime": "2023-09-17T17:55:31.862Z",
+    "endTime": "2023-09-17T17:55:36.875Z",
+    "childProcessPid": 19124,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--codespecs--commons-bcel--19124",
+    "executionErrors": []
+}

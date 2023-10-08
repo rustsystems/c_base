@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/SemanticSegmentation undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/SemanticSegmentation",
+    "repo": "https://github.com/verivital/SemanticSegmentation",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/SemanticSegmentation",
+    "startTime": "2023-09-17T18:04:30.349Z",
+    "endTime": "2023-09-17T18:08:24.745Z",
+    "childProcessPid": 19630,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--SemanticSegmentation--19630",
+    "executionErrors": []
+}

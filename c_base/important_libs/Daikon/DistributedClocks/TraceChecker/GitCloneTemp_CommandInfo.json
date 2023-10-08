@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/TraceChecker undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/TraceChecker",
+    "repo": "https://github.com/DistributedClocks/TraceChecker",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/TraceChecker",
+    "startTime": "2023-09-17T18:07:51.442Z",
+    "endTime": "2023-09-17T18:07:52.307Z",
+    "childProcessPid": 19820,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--TraceChecker--19820",
+    "executionErrors": []
+}

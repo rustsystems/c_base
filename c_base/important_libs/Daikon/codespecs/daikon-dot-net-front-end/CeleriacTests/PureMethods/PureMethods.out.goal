@@ -1,0 +1,13 @@
+Argument processing complete
+Rewriting complete
+Loading complete. Starting program.
+Hello World
+6
+MethodA() Expected: MethodA()
+MyInterface.MethodB() Expected: MyInterface.MethodB()
+AnotherInterface.MethodA() Expected: AnotherInterface.MethodA()
+MethodA() Expected: MethodA()
+MyInterface.MethodB() Expected: MyInterface.MethodB()
+PropertyA Expected: PropertyA
+Done
+Program complete. Exiting Celeriac.

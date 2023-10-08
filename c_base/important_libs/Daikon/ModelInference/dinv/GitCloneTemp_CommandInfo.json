@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/ModelInference/dinv undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/dinv",
+    "repo": "https://github.com/ModelInference/dinv",
+    "targetPath": "undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/dinv",
+    "startTime": "2023-09-17T18:15:03.041Z",
+    "endTime": "2023-09-17T18:15:43.312Z",
+    "childProcessPid": 20413,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--ModelInference--dinv--20413",
+    "executionErrors": []
+}

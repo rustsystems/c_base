@@ -1,0 +1,2 @@
+With/without --allow_same_bindings, instantiations:
+(!b W a) & G(a -> X(!a U b))

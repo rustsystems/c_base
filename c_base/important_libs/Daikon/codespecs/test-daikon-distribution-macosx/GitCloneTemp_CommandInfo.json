@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/codespecs/test-daikon-distribution-macosx undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/test-daikon-distribution-macosx",
+    "repo": "https://github.com/codespecs/test-daikon-distribution-macosx",
+    "targetPath": "undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/test-daikon-distribution-macosx",
+    "startTime": "2023-09-17T18:03:37.501Z",
+    "endTime": "2023-09-17T18:03:38.297Z",
+    "childProcessPid": 19510,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--codespecs--test-daikon-distribution-macosx--19510",
+    "executionErrors": []
+}

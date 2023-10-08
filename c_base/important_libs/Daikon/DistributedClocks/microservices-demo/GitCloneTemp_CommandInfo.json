@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/microservices-demo undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/microservices-demo",
+    "repo": "https://github.com/DistributedClocks/microservices-demo",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/microservices-demo",
+    "startTime": "2023-09-17T18:07:52.308Z",
+    "endTime": "2023-09-17T18:08:03.178Z",
+    "childProcessPid": 19825,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--microservices-demo--19825",
+    "executionErrors": []
+}

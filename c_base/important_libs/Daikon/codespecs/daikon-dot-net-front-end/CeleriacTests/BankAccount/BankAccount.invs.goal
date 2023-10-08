@@ -1,0 +1,62 @@
+===========================================================================
+BankAccountNS.BankAccount:::OBJECT
+this.m_balance one of { 7.44, 11.99 }
+this.m_customerName has only one value
+this.m_customerName.ToString() == "Mr. Bryan Walton"
+this.m_frozen == false
+this.GetType() == BankAccountNS.BankAccount.class
+===========================================================================
+BankAccountNS.BankAccount..ctor(System.String customerName, System.Double balance):::ENTER
+customerName has only one value
+customerName.ToString() == "Mr. Bryan Walton"
+balance == 11.99
+===========================================================================
+BankAccountNS.BankAccount..ctor(System.String customerName, System.Double balance):::EXIT
+this.m_balance == orig(balance)
+this.m_customerName == orig(customerName)
+this.m_balance == 11.99
+customerName.ToString() == "Mr. Bryan Walton"
+this.m_customerName.ToString() == customerName.ToString()
+customerName.ToString() == orig(customerName.ToString())
+===========================================================================
+BankAccountNS.BankAccount.Balance.get():::ENTER
+BankAccountNS.BankAccount.DebitAmountExceedsBalanceMessage has only one value
+BankAccountNS.BankAccount.DebitAmountLessThanZeroMessage has only one value
+this has only one value
+this.m_balance == 7.44
+===========================================================================
+BankAccountNS.BankAccount.Balance.get():::EXIT4
+===========================================================================
+BankAccountNS.BankAccount.Balance.get():::EXIT
+this.m_balance == return
+this.m_customerName == orig(this.m_customerName)
+this.m_frozen == orig(this.m_frozen)
+return == orig(this.m_balance)
+BankAccountNS.BankAccount.DebitAmountExceedsBalanceMessage has only one value
+BankAccountNS.BankAccount.DebitAmountLessThanZeroMessage has only one value
+return == 7.44
+this.m_customerName.ToString() == orig(this.m_customerName.ToString())
+===========================================================================
+BankAccountNS.BankAccount.Debit(System.Double amount):::ENTER
+this.m_balance == 11.99
+amount one of { -100.0, 4.55, 20.0 }
+===========================================================================
+BankAccountNS.BankAccount.Debit(System.Double amount):::EXIT49
+BankAccountNS.BankAccount.DebitAmountExceedsBalanceMessage has only one value
+BankAccountNS.BankAccount.DebitAmountLessThanZeroMessage has only one value
+this.m_balance == 7.44
+orig(BankAccountNS.BankAccount.DebitAmountExceedsBalanceMessage) has only one value
+orig(BankAccountNS.BankAccount.DebitAmountLessThanZeroMessage) has only one value
+orig(this) has only one value
+orig(amount) == 4.55
+===========================================================================
+BankAccountNS.BankAccount.Debit(System.Double amount):::EXIT_EX_System.Exception
+this.m_balance == orig(this.m_balance)
+this.m_balance == 11.99
+orig(amount) one of { -100.0, 20.0 }
+===========================================================================
+BankAccountNS.BankAccount.Debit(System.Double amount):::EXIT
+this.m_customerName == orig(this.m_customerName)
+this.m_frozen == orig(this.m_frozen)
+exception.GetType() == System.ArgumentOutOfRangeException.class
+this.m_customerName.ToString() == orig(this.m_customerName.ToString())

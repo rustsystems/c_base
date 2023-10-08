@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/tracing undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/tracing",
+    "repo": "https://github.com/DistributedClocks/tracing",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/tracing",
+    "startTime": "2023-09-17T18:08:05.672Z",
+    "endTime": "2023-09-17T18:08:06.836Z",
+    "childProcessPid": 19853,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--tracing--19853",
+    "executionErrors": []
+}

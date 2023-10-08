@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/ModelInference/perfume-frontend undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/perfume-frontend",
+    "repo": "https://github.com/ModelInference/perfume-frontend",
+    "targetPath": "undefined\\MI--09-17-2023--kb9zGAUct2vtQoTz8UkFxu/perfume-frontend",
+    "startTime": "2023-09-17T18:15:46.274Z",
+    "endTime": "2023-09-17T18:15:49.213Z",
+    "childProcessPid": 20452,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--ModelInference--perfume-frontend--20452",
+    "executionErrors": []
+}

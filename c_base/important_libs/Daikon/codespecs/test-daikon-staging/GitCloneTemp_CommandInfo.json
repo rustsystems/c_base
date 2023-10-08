@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/codespecs/test-daikon-staging undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/test-daikon-staging",
+    "repo": "https://github.com/codespecs/test-daikon-staging",
+    "targetPath": "undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/test-daikon-staging",
+    "startTime": "2023-09-17T18:03:38.298Z",
+    "endTime": "2023-09-17T18:03:39.044Z",
+    "childProcessPid": 19515,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--codespecs--test-daikon-staging--19515",
+    "executionErrors": []
+}

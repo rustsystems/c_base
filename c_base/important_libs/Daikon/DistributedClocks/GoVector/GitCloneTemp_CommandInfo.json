@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/GoVector undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/GoVector",
+    "repo": "https://github.com/DistributedClocks/GoVector",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/GoVector",
+    "startTime": "2023-09-17T18:07:48.912Z",
+    "endTime": "2023-09-17T18:07:50.367Z",
+    "childProcessPid": 19805,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--GoVector--19805",
+    "executionErrors": []
+}

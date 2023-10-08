@@ -1,0 +1,8 @@
+This is a dummy project to make Travis run tests to test the Daikon
+distribution.  It's a separate job from the Linux one because Travis does
+not currently support switching the JDK version on MacOSX.
+
+To start a job:
+
+  curl -LO --retry 3 https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
+  trigger-travis.sh codespecs test-daikon-distribution-macosx `cat ~/private/.travis-access-token`

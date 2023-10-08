@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/CppVector undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/CppVector",
+    "repo": "https://github.com/DistributedClocks/CppVector",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/CppVector",
+    "startTime": "2023-09-17T18:07:47.230Z",
+    "endTime": "2023-09-17T18:07:48.079Z",
+    "childProcessPid": 19795,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--CppVector--19795",
+    "executionErrors": []
+}

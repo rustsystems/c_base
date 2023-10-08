@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/codespecs/fjalar undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/fjalar",
+    "repo": "https://github.com/codespecs/fjalar",
+    "targetPath": "undefined\\code--09-17-2023--f7wEQwTeeWBMqLBDCoLCoL/fjalar",
+    "startTime": "2023-09-17T18:02:14.998Z",
+    "endTime": "2023-09-17T18:03:36.729Z",
+    "childProcessPid": 19444,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--codespecs--fjalar--19444",
+    "executionErrors": []
+}

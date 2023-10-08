@@ -1,0 +1,7 @@
+This is a dummy project to make CI run tests to test the Daikon distribution.
+
+To start a job:
+
+  curl -LO --retry 3 https://raw.github.com/mernst/plume-lib/master/bin/trigger-travis.sh
+  chmod +x trigger-travis.sh
+  trigger-travis.sh codespecs test-daikon-staging `cat ~/private/.travis-access-token`

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/DistributedClocks/DistributedClocks.github.io undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/DistributedClocks.github.io",
+    "repo": "https://github.com/DistributedClocks/DistributedClocks.github.io",
+    "targetPath": "undefined\\DC--09-17-2023--5d8s7FMFjfnyjRzZLMPA3v/DistributedClocks.github.io",
+    "startTime": "2023-09-17T18:07:48.080Z",
+    "endTime": "2023-09-17T18:07:48.910Z",
+    "childProcessPid": 19800,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--DistributedClocks--DistributedClocks.github.io--19800",
+    "executionErrors": []
+}
