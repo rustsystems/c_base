@@ -1,0 +1,45 @@
+# pack-refs with: peeled fully-peeled sorted 
+1b2b22f2e37384af2c562bd95d5e93ce2e192451 refs/remotes/origin/main
+d52f66d2109edd61ff436affd8cfb6b9124f4ff5 refs/remotes/origin/rel/libplatform-126
+67b7698f05efea3f3cbffaec8da0025da3cb8713 refs/remotes/origin/rel/libplatform-161
+26a76f6563c7bf6472159b772349ff1ca599f8fb refs/remotes/origin/rel/libplatform-177
+1989985f6372528981ce27ef0152c42b1ca71d2c refs/remotes/origin/rel/libplatform-220
+c8b140a4b2cf36665497f4f9df3797d2ed10e857 refs/remotes/origin/rel/libplatform-254
+5aa14932bb35b701c64bf7cab9dd26bae741b0fe refs/remotes/origin/rel/libplatform-273
+c7b97b198e8329813fd9ca7fe122a82c2cffc109 refs/remotes/origin/rel/libplatform-292
+b37f3053bf770225a0b29a830b6c34ef93d56a0d refs/tags/libplatform-126.1.2
+^92f132b0bf9f95271a205258cbf2b09adc4f93ec
+623a2aaccadece8e132698ecdf41eb04c1f009e2 refs/tags/libplatform-126.50.8
+^d52f66d2109edd61ff436affd8cfb6b9124f4ff5
+a653403752c0439d8efac3c8b580ce361cd049bf refs/tags/libplatform-161
+^9f3b0a4400a84366a69f4ed12f7ed7a5218da130
+9ea743c586653043e18b0dd630da7b60e86b3524 refs/tags/libplatform-161.20.1
+^1f842953d89d9539749d580c8e5c862014cbf6af
+a5793bab68cb2576b1e9a024b53ac0a1f90e38b8 refs/tags/libplatform-161.50.1
+^67b7698f05efea3f3cbffaec8da0025da3cb8713
+1a62b4f8988c3391cd7dbfebaade7884b90084f2 refs/tags/libplatform-177.200.16
+^a25c66eb8a73c4860566664570ef5820485f7c78
+87a3d9bca1bee46b90f6ae834782478635d9078e refs/tags/libplatform-177.250.1
+^7f164119d09f3d47aa6b13f5a74c6dc1cf1480c7
+9e1091e425e6730606f5b6f30dd7d638221e5d2a refs/tags/libplatform-177.270.1
+^26a76f6563c7bf6472159b772349ff1ca599f8fb
+6534637df61047c51cd3914988639adf97269443 refs/tags/libplatform-220
+^2d3fa72d4a77e48aadb76e57210a31c277150efa
+068ca71505fa46c3970fe51e70e6a4c07a61b022 refs/tags/libplatform-220.100.1
+^1989985f6372528981ce27ef0152c42b1ca71d2c
+d9b145b087f65d673bc9b5db6285192d2e3bed60 refs/tags/libplatform-254.40.4
+^313ba3bf1776d7c0b6fdac10148cc69e5527d4c3
+211b101de12653852432097fcaf91d37df21d174 refs/tags/libplatform-254.60.1
+^70b0ca15d17b35ba2160baf1c28cb8cdff3bbb86
+3ddbd6edb4d63df541b79648807fce4e3e868513 refs/tags/libplatform-254.80.2
+^c8b140a4b2cf36665497f4f9df3797d2ed10e857
+bf9879220b57eb4933b7e95845805475306528fd refs/tags/libplatform-273.100.5
+^5aa14932bb35b701c64bf7cab9dd26bae741b0fe
+9f8e3ba2838f7149e3317fdc88ffe03ba32f0fa2 refs/tags/libplatform-273.40.1
+^265976204fef993fd699fb97e874fcc9d5a95e4b
+53fd120f101555285b937218ef11a69a0003cd7b refs/tags/libplatform-288
+^b30816d7f0a6e58ef9e9e9270257c5ee1c712b4d
+ae29b55982407f5f05c72ab9e1a2b4e238289010 refs/tags/libplatform-292.100.1
+^1b2b22f2e37384af2c562bd95d5e93ce2e192451
+3e7c4c89902540af4bc5fdedeb746a30335271c7 refs/tags/libplatform-292.120.1.0.1
+^c7b97b198e8329813fd9ca7fe122a82c2cffc109
