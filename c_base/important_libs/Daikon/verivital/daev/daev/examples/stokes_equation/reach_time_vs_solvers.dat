@@ -1,0 +1,12 @@
+
+    REACHABLE SET COMPUTATION TIME VERSUS SOLVERS
+
+(('dimensions', 86), [(('solver', 'vode'), ('reachset_compuation_time', 0.018985986709594727)), (('solver', 'zvode'), ('reachset_compuation_time', 0.03696107864379883)), (('solver', 'lsoda'), ('reachset_compuation_time', 0.015232086181640625)), (('solver', 'dopri5'), ('reachset_compuation_time', 0.03099203109741211)), (('solver', 'dop853'), ('reachset_compuation_time', 0.020827054977416992))])
+
+(('dimensions', 321), [(('solver', 'vode'), ('reachset_compuation_time', 0.6937859058380127)), (('solver', 'zvode'), ('reachset_compuation_time', 1.2551090717315674)), (('solver', 'lsoda'), ('reachset_compuation_time', 0.35956597328186035)), (('solver', 'dopri5'), ('reachset_compuation_time', 0.47115111351013184)), (('solver', 'dop853'), ('reachset_compuation_time', 0.39783787727355957))])
+
+(('dimensions', 706), [(('solver', 'vode'), ('reachset_compuation_time', 4.258442163467407)), (('solver', 'zvode'), ('reachset_compuation_time', 8.645390033721924)), (('solver', 'lsoda'), ('reachset_compuation_time', 7.781383037567139)), (('solver', 'dopri5'), ('reachset_compuation_time', 3.651340961456299)), (('solver', 'dop853'), ('reachset_compuation_time', 3.849069833755493))])
+
+(('dimensions', 1241), [(('solver', 'vode'), ('reachset_compuation_time', 23.5346200466156)), (('solver', 'zvode'), ('reachset_compuation_time', 50.726510763168335)), (('solver', 'lsoda'), ('reachset_compuation_time', 64.80965280532837)), (('solver', 'dopri5'), ('reachset_compuation_time', 21.206522941589355)), (('solver', 'dop853'), ('reachset_compuation_time', 23.431799173355103))])
+
+(('dimensions', 1926), [(('solver', 'vode'), ('reachset_compuation_time', 178.4315938949585)), (('solver', 'zvode'), ('reachset_compuation_time', 451.65378403663635)), (('solver', 'lsoda'), ('reachset_compuation_time', 357.3379738330841)), (('solver', 'dopri5'), ('reachset_compuation_time', 84.97405314445496)), (('solver', 'dop853'), ('reachset_compuation_time', 95.25163388252258))])

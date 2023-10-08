@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/cps_vision undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/cps_vision",
+    "repo": "https://github.com/verivital/cps_vision",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/cps_vision",
+    "startTime": "2023-09-17T18:11:44.540Z",
+    "endTime": "2023-09-17T18:11:49.896Z",
+    "childProcessPid": 20154,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--cps_vision--20154",
+    "executionErrors": []
+}

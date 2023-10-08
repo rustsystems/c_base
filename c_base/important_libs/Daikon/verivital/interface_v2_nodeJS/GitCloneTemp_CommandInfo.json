@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/interface_v2_nodeJS undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/interface_v2_nodeJS",
+    "repo": "https://github.com/verivital/interface_v2_nodeJS",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/interface_v2_nodeJS",
+    "startTime": "2023-09-17T18:13:47.587Z",
+    "endTime": "2023-09-17T18:13:50.637Z",
+    "childProcessPid": 20289,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--interface_v2_nodeJS--20289",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/PiPhone undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/PiPhone",
+    "repo": "https://github.com/verivital/PiPhone",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/PiPhone",
+    "startTime": "2023-09-17T18:03:59.963Z",
+    "endTime": "2023-09-17T18:04:02.196Z",
+    "childProcessPid": 19575,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--PiPhone--19575",
+    "executionErrors": []
+}

@@ -1,0 +1,14 @@
+
+    VERIFICATION TIME
+
+('dimension = 86', [('decoupling_time', 0.011790037155151367), ('reachset_computation_time', 0.019048213958740234), ('checking_safety_time', 0.0016739368438720703)])
+
+('dimension = 321', [('decoupling_time', 0.6262481212615967), ('reachset_computation_time', 0.36615490913391113), ('checking_safety_time', 0.0013918876647949219)])
+
+('dimension = 706', [('decoupling_time', 6.317456007003784), ('reachset_computation_time', 2.9827611446380615), ('checking_safety_time', 0.0015289783477783203)])
+
+('dimension = 1241', [('decoupling_time', 40.38289403915405), ('reachset_computation_time', 19.292398929595947), ('checking_safety_time', 0.0016739368438720703)])
+
+('dimension = 1926', [('decoupling_time', 155.31951117515564), ('reachset_computation_time', 68.14690208435059), ('checking_safety_time', 0.0018389225006103516)])
+
+('dimension = 2761', [('decoupling_time', 466.38161993026733), ('reachset_computation_time', 200.8945791721344), ('checking_safety_time', 0.0020329952239990234)])
