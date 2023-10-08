@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/slsf_randgen undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/slsf_randgen",
+    "repo": "https://github.com/verivital/slsf_randgen",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/slsf_randgen",
+    "startTime": "2023-09-17T18:24:05.904Z",
+    "endTime": "2023-09-17T18:24:07.195Z",
+    "childProcessPid": 21007,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--slsf_randgen--21007",
+    "executionErrors": []
+}

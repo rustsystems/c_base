@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/eran undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/eran",
+    "repo": "https://github.com/verivital/eran",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/eran",
+    "startTime": "2023-09-17T18:11:53.385Z",
+    "endTime": "2023-09-17T18:12:00.367Z",
+    "childProcessPid": 20176,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--eran--20176",
+    "executionErrors": []
+}

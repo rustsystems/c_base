@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/cell_flows undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/cell_flows",
+    "repo": "https://github.com/verivital/cell_flows",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/cell_flows",
+    "startTime": "2023-09-17T18:11:41.122Z",
+    "endTime": "2023-09-17T18:11:41.835Z",
+    "childProcessPid": 20141,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--cell_flows--20141",
+    "executionErrors": []
+}

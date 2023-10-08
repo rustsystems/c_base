@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/pdha undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/pdha",
+    "repo": "https://github.com/verivital/pdha",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/pdha",
+    "startTime": "2023-09-17T18:23:44.442Z",
+    "endTime": "2023-09-17T18:23:45.310Z",
+    "childProcessPid": 20961,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--pdha--20961",
+    "executionErrors": []
+}

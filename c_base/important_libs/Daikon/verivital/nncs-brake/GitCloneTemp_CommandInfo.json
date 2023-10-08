@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/nncs-brake undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/nncs-brake",
+    "repo": "https://github.com/verivital/nncs-brake",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/nncs-brake",
+    "startTime": "2023-09-17T18:19:07.447Z",
+    "endTime": "2023-09-17T18:19:09.496Z",
+    "childProcessPid": 20785,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--nncs-brake--20785",
+    "executionErrors": []
+}

@@ -1,0 +1,1011 @@
+<?xml version="1.0"?>
+
+<holism>
+	<parameter name='N' type='index' comment='number of processes in the system' />
+	<parameter name='A' assumption='A == 5.0' type='real' comment='smaller constant' />
+	<parameter name='B' assumption='B == 27.0' type='real' comment='larger constant' />
+	
+	<variable name='g' type='index' update_type='Discrete' comment='lock' />
+	
+	<assumption equn='A &gt; 0.0 and B &gt; 0.0 and A &lt; B' comment='A *stictly less than* B for mutual exclusion' />
+	<assumption equn='N &gt;= 2 and N &lt;= 100' comment='' />
+
+
+	<automaton name='fischer'>
+		<variable name='x[i]' type='real' update_type='Continuous' />
+		
+		<initial equn='(forall i (x[i] = 0.0)) and g = 0' />
+
+		<mode id='0' name='idle' initial='True'>
+			<dai variable='x[i]' equn='x[i]_dot = 0.0'/>
+		</mode>
+
+		<mode id='1' name='start' initial='False'>
+			<dai variable='x[i]' equn='x[i]_dot = 1.0'/>
+			<invariant equn='x[i] &lt;= A'/>
+<!--			<stop equn='x[i] &gt;= A'/>	-->
+		</mode>
+		
+		<mode id='2' name='check' initial='False'>
+			<dai variable='x[i]' equn='x[i]_dot = 1.0'/>
+		</mode>
+		
+		<mode id='3' name='cs' initial='False'>
+			<dai variable='x[i]' equn='x[i]_dot = 0.0'/>
+		</mode>
+
+		<transition source='idle' destination='start'>
+			<guard equn='g = 0'/>
+			<action equn='x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='start' destination='check'>
+			<guard equn='x[i] &lt;= A'/>
+			<action equn='g&apos; = i and x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='check' destination='idle'>
+			<guard equn='x[i] &gt;= B and g != i'/>
+			<action equn='x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='check' destination='cs'>
+			<guard equn='x[i] &gt;= B and g = i'/>
+			<action equn='x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='cs' destination='idle'>
+			<action equn='g&apos; = 0 and x[i]&apos; = 0.0'/>
+		</transition>
+	</automaton>
+	
+<!--
+	<property format='smt' type='safety' equn='(forall ((i Int))
+  (let ((a!1 (not (or (= (q i) start) (not (not (= g i))) (&lt;= (x i) 0.0))))
+        (a!2 (or (not (= (q i) start)) (not (= (x i) 0.0)) (not (not (= g i)))))
+        (a!3 (or (not (= (q i) start)) (not (not (= g i))) (not (= (x i) 0.0))))
+        (a!4 (or (not (= (q i) check))
+                 (not (= g i))
+                 (not (&gt;= A 0.0))
+                 (not (= (x i) 0.0))))
+        (a!5 (or (not (= (q i) idle)) (not (not (= g i))) (not (&lt;= B 0.0))))
+        (a!6 (or (not (= (q i) idle)) (not (not (= g i)))))
+        (a!7 (or (not (= (q i) check))
+                 (not (= (x i) 0.0))
+                 (not (= g i))
+                 (not (&gt;= A 0.0))))
+        (a!8 (or (not (= (q i) idle)) (not (&lt;= B 0.0)) (not (not (= g i)))))
+        (a!9 (or (not (= (q i) start))
+                 (not (= (x i) 0.0))
+                 (not (not (= g i)))
+                 (not (&lt;= B 0.0))))
+        (a!10 (or (not (= (q i) check))
+                  (not (= (x i) 0.0))
+                  (not (= g i))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))))
+        (a!11 (or (not (= (q i) start))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!12 (or (not (= (q i) idle))
+                  (not (&lt;= B 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!13 (or (not (= (q i) idle)) (not (&gt;= A 0.0)) (not (not (= g i)))))
+        (a!14 (or (not (= (q i) start))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))))
+        (a!15 (or (not (= (q i) check))
+                  (not (= g i))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!16 (or (not (= (q i) start))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!17 (or (not (= (q i) idle))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!18 (or (not (= (q i) idle)) (not (not (= g i))) (not (&gt;= A 0.0))))
+        (a!19 (or (not (= (q i) check))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))
+                  (not (= g i))))
+        (a!20 (or (not (= (q i) idle))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!21 (or (not (= (q i) idle))
+                  (not (&lt;= B 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!22 (or (not (= (q i) check))
+                  (not (= (x i) 0.0))
+                  (not (= g i))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!23 (or (not (= (q i) start))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))))
+        (a!24 (or (not (= (q i) start))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))))
+        (a!25 (or (not (= (q i) start))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))))
+        (a!26 (or (not (= (q i) idle))
+                  (not (&gt;= A 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))))
+        (a!27 (or (not (= (q i) start))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!28 (or (not (= (q i) idle))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))))
+        (a!29 (or (not (= (q i) check))
+                  (not (= g i))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))))
+        (a!30 (or (not (= (q i) idle)) (not (not (= g i))) (not (&gt;= A 0.0))))
+        (a!31 (or (not (= (q i) idle)) (not (&gt;= A 0.0)) (not (not (= g i)))))
+        (a!32 (or (not (= (q i) start))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!33 (or (not (= (q i) start))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))))
+        (a!34 (or (not (= idle (q i))) (not (= (x i) 0.0)) (not (not (= g i)))))
+        (a!35 (or (not (= idle (q i))) (not (not (= g i))) (not (= (x i) 0.0))))
+        (a!36 (or (not (not (= g i))) (not (= (x i) 0.0))))
+        (a!37 (or (not (not (= g i))) (not (&gt;= A 0.0)) (not (= (x i) 0.0))))
+        (a!38 (or (not (= (x i) 0.0)) (not (not (= g i)))))
+        (a!39 (or (not (= (x i) 0.0)) (not (not (= g i))) (not (&lt;= B 0.0))))
+        (a!40 (or (not (= (x i) 0.0)) (not (not (= g i))) (not (&gt;= A 0.0))))
+        (a!41 (or (not (not (= g i))) (not (&lt;= B 0.0)) (not (= (x i) 0.0))))
+        (a!42 (or (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!43 (or (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))))
+        (a!44 (or (not (not (= g i))) (not (&gt;= A 0.0)) (not (= (x i) 0.0))))
+        (a!45 (or (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!46 (or (not (= idle (q i))) (not (not (= g i))) (&lt;= (x i) 0.0)))
+        (a!47 (or (not (= idle (q i))) (&lt;= (x i) 0.0) (not (not (= g i)))))
+        (a!48 (or (not (= start (q i))) (not (not (= g i))) (not (= (x i) 0.0))))
+        (a!49 (or (not (= start (q i)))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!50 (or (not (= start (q i))) (not (= (x i) 0.0)) (not (not (= g i)))))
+        (a!51 (or (not (= start (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))))
+        (a!52 (or (not (= start (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!53 (or (not (= start (q i)))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))))
+        (a!54 (or (not (= start (q i)))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!55 (or (not (= start (q i)))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))))
+        (a!56 (or (not (= start (q i)))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!57 (or (not (= start (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!58 (not (or (= (q i) start) (&lt;= (x i) 0.0) (not (not (= g i))))))
+        (a!59 (not (or (= (q i) start)
+                       (&lt;= (x i) 0.0)
+                       (not (&gt;= A 0.0))
+                       (not (not (= g i))))))
+        (a!60 (not (or (= (q i) start)
+                       (&lt;= (x i) 0.0)
+                       (not (&lt;= B 0.0))
+                       (not (not (= g i))))))
+        (a!61 (not (or (= (q i) start)
+                       (&lt;= (x i) 0.0)
+                       (not (&gt;= A 0.0))
+                       (not (not (= g i))))))
+        (a!62 (not (or (= (q i) start)
+                       (&lt;= (x i) 0.0)
+                       (not (&lt;= B 0.0))
+                       (not (&gt;= A 0.0))
+                       (not (not (= g i))))))
+        (a!63 (not (or (= (q i) start)
+                       (&lt;= (x i) 0.0)
+                       (not (&gt;= A 0.0))
+                       (not (&lt;= B 0.0))
+                       (not (not (= g i))))))
+        (a!64 (not (or (= (q i) start)
+                       (&lt;= (x i) 0.0)
+                       (not (&gt;= A 0.0))
+                       (not (&lt;= B 0.0))
+                       (not (not (= g i))))))
+        (a!65 (or (not (= check (q i)))
+                  (not (= (x i) 0.0))
+                  (not (= g i))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))))
+        (a!66 (or (not (= idle (q i))) (not (not (= g i)))))
+        (a!67 (or (not (= idle (q i))) (not (not (= g i)))))
+        (a!68 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!69 (or (not (= idle (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!70 (or (not (= idle (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!71 (or (not (= idle (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!72 (or (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!73 (or (not (= (x i) 0.0)) (not (not (= g i))) (not (&gt;= A 0.0))))
+        (a!74 (or (not (= idle (q i)))
+                  (&lt;= (x i) 0.0)
+                  (not (&gt;= A 0.0))
+                  (not (not (= g i)))))
+        (a!75 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (&lt;= (x i) 0.0)
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!76 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (&lt;= (x i) 0.0)
+                  (not (&gt;= A 0.0))))
+        (a!77 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (&lt;= (x i) 0.0)
+                  (not (&gt;= A 0.0))))
+        (a!78 (or (not (= start (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!79 (or (not (= start (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!80 (or (not (= idle (q i))) (not (&lt;= B 0.0)) (not (not (= g i)))))
+        (a!81 (or (not (= idle (q i))) (not (not (= g i))) (not (&lt;= B 0.0))))
+        (a!82 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))
+                  (not (&lt;= B 0.0))))
+        (a!83 (or (not (= idle (q i)))
+                  (not (&lt;= B 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!84 (or (not (= idle (q i)))
+                  (not (&lt;= B 0.0))
+                  (not (not (= g i)))
+                  (not (&gt;= A 0.0))))
+        (a!85 (or (not (= idle (q i))) (not (&gt;= A 0.0)) (not (not (= g i)))))
+        (a!86 (or (not (= idle (q i))) (not (not (= g i))) (not (&gt;= A 0.0))))
+        (a!87 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))))
+        (a!88 (or (not (= idle (q i)))
+                  (not (&gt;= A 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))))
+        (a!89 (or (not (= idle (q i)))
+                  (not (&gt;= A 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))))
+        (a!90 (or (not (= idle (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))))
+        (a!91 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))))
+        (a!92 (or (not (= idle (q i)))
+                  (not (&lt;= B 0.0))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))))
+        (a!93 (or (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))))
+        (a!94 (or (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!95 (or (not (= start (q i)))
+                  (not (= (x i) 0.0))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))))
+        (a!96 (or (not (= start (q i)))
+                  (not (not (= g i)))
+                  (not (&lt;= B 0.0))
+                  (not (&gt;= A 0.0))
+                  (not (= (x i) 0.0))))
+        (a!97 (or (not (= idle (q i)))
+                  (not (not (= g i)))
+                  (&lt;= (x i) 0.0)
+                  (not (&lt;= B 0.0))))
+        (a!98 (or (not (= idle (q i)))
+                  (&lt;= (x i) 0.0)
+                  (not (&lt;= B 0.0))
+                  (not (not (= g i)))))
+        (a!99 (or (not (= idle (q i)))
+                  (not (&lt;= B 0.0))
+                  (not (not (= g i)))
+                  (&lt;= (x i) 0.0)))
+        (a!100 (not (or (= (q i) start)
+                        (&lt;= (x i) 0.0)
+                        (not (&lt;= B 0.0))
+                        (not (&gt;= A 0.0))
+                        (not (not (= g i))))))
+        (a!101 (or (not (= idle (q i))) (not (&gt;= A 0.0)) (not (not (= g i)))))
+        (a!102 (or (not (= idle (q i)))
+                   (not (&gt;= A 0.0))
+                   (not (= (x i) 0.0))
+                   (not (not (= g i)))))
+        (a!103 (or (not (not (= g i)))
+                   (not (&gt;= A 0.0))
+                   (not (&lt;= B 0.0))
+                   (not (= (x i) 0.0))))
+        (a!104 (or (not (= idle (q i)))
+                   (not (&gt;= A 0.0))
+                   (not (not (= g i)))
+                   (&lt;= (x i) 0.0)))
+        (a!105 (or (not (= start (q i)))
+                   (not (not (= g i)))
+                   (not (&gt;= A 0.0))
+                   (not (&lt;= B 0.0))
+                   (not (= (x i) 0.0)))))
+    (=&gt; (and (&gt;= i 1) (&lt;= i N))
+        (or a!1
+            (not a!2)
+            (not a!3)
+            (not a!4)
+            (not a!5)
+            (not a!6)
+            (not a!7)
+            (not a!8)
+            (not a!9)
+            (not a!10)
+            (not a!11)
+            (not a!12)
+            (not a!13)
+            (not a!14)
+            (not a!15)
+            (not a!16)
+            (not a!17)
+            (not a!18)
+            (not a!19)
+            (not a!20)
+            (not a!21)
+            (not a!22)
+            (not a!23)
+            (not a!24)
+            (not a!25)
+            (not a!26)
+            (not a!27)
+            (not a!28)
+            (not a!29)
+            (not a!30)
+            (not a!31)
+            (not a!32)
+            (not a!33)
+            (not a!34)
+            (not a!35)
+            (not a!36)
+            (not a!37)
+            (not a!38)
+            (not a!39)
+            (not a!40)
+            (not a!41)
+            (not a!42)
+            (not a!43)
+            (not a!44)
+            (not a!45)
+            (not a!46)
+            (not a!47)
+            (not a!48)
+            (not a!49)
+            (not a!50)
+            (not a!51)
+            (not a!52)
+            (not a!53)
+            (not a!54)
+            (not a!55)
+            (not a!56)
+            (not a!57)
+            a!58
+            a!59
+            a!60
+            a!61
+            a!62
+            a!63
+            a!64
+            (not a!65)
+            (not a!66)
+            (not a!67)
+            (not a!68)
+            (not a!69)
+            (not a!70)
+            (not a!71)
+            (not a!72)
+            (not a!73)
+            (not a!74)
+            (not a!75)
+            (not a!76)
+            (not a!77)
+            (not a!78)
+            (not a!79)
+            (not a!80)
+            (not a!81)
+            (not a!82)
+            (not a!83)
+            (not a!84)
+            (not a!85)
+            (not a!86)
+            (not a!87)
+            (not a!88)
+            (not a!89)
+            (not a!90)
+            (not a!91)
+            (not a!92)
+            (not a!93)
+            (not a!94)
+            (not a!95)
+            (not a!96)
+            (not a!97)
+            (not a!98)
+            (not a!99)
+            a!100
+            (not a!101)
+            (not a!102)
+            (not a!103)
+            (not a!104)
+            (not a!105)))))' />
+            
+            
+            
+	<property format='smt' type='safety' equn='(forall ((i Int) (j Int))
+  (let ((a!1 (&gt;= (+ (x i) (* (- 1.0) (x j))) 0.0))
+        (a!2 (&gt;= (+ (* (- 1.0) (x i)) (x j)) 0.0))
+        (a!4 (&lt;= (+ (* (- 1.0) (x i)) (x j)) 0.0))
+        (a!6 (&lt;= (+ (x j) (* (- 1.0) (x i))) 0.0))
+        (a!7 (&gt;= (+ (* (- 1.0) (x j)) (x i)) 0.0))
+        (a!9 (&lt;= (+ (x i) (* (- 1.0) (x j))) 0.0))
+        (a!12 (and (= (q i) start)
+                   (= idle (q j))
+                   (not (= g i)) (not (= g j))
+                   (not (&lt;= (x j) 0.0))
+                   (= (x i) 0.0)))
+        (a!13 (and (= (q j) start)
+                   (= idle (q i))
+                   (not (= g i)) (not (= g j))
+                   (not (&lt;= (x i) 0.0))
+                   (= (x j) 0.0)))
+        (a!15 (&lt;= (+ (* (- 1.0) (x j)) (x i)) 0.0)))
+  (let ((a!3 (and (= (q i) idle)
+                  (= (q j) idle)
+                  (not (&lt;= (x j) 0.0))
+                  (not (= g i)) (not (= g j))
+                  (not a!1)
+                  (not (&lt;= (x i) 0.0))
+                  (not a!2)))
+        (a!5 (and (= (q i) idle)
+                  (= (q j) idle)
+                  (not (&lt;= (x j) 0.0))
+                  (not (= g i)) (not (= g j))
+                  (not a!1)
+                  (not (&lt;= (x i) 0.0))
+                  a!4))
+        (a!8 (and (= (q i) idle)
+                  (not (= (q j) start))
+                  a!6
+                  (not (&lt;= (x j) 0.0))
+                  (not (&lt;= (x i) 0.0))
+                  (not (= g i)) (not (= g j))
+                  (not a!7)))
+        (a!10 (and (= (q i) idle)
+                   (not (= (q j) start))
+                   (not (&lt;= (x j) 0.0))
+                   (not (= g i)) (not (= g j))
+                   a!9
+                   (not (&lt;= (x i) 0.0))
+                   (not a!2)))
+        (a!11 (and (= (q i) idle)
+                   (&lt;= (x j) A)
+                   (= (q j) idle)
+                   (not (&lt;= (x j) 0.0))
+                   (not (= g i)) (not (= g j))
+                   (not a!1)
+                   (not (&lt;= (x i) 0.0))
+                   (not a!2)))
+        (a!14 (and (= idle (q i))
+                   (= idle (q j))
+                   (not (&lt;= (x j) 0.0))
+                   (not (= g i)) (not (= g j))
+                   (not a!2)
+                   (not (&lt;= (x i) 0.0))
+                   a!9))
+        (a!16 (and (= idle (q i))
+                   (= idle (q j))
+                   a!15
+                   (not (&lt;= (x j) 0.0))
+                   (not (&lt;= (x i) 0.0))
+                   (not (= g i)) (not (= g j))
+                   a!6))
+        (a!17 (and (= idle (q i))
+                   (= idle (q j))
+                   (not a!7)
+                   (not (&lt;= (x j) 0.0))
+                   (not (&lt;= (x i) 0.0))
+                   (not (= g i)) (not (= g j))
+                   a!6))
+        (a!18 (and (= idle (q i))
+                   (= idle (q j))
+                   (not (&lt;= (x j) 0.0))
+                   (not (= g i)) (not (= g j))
+                   a!4
+                   (not (&lt;= (x i) 0.0))
+                   a!9)))
+  (let ((a!19 (or a!3
+                  a!5
+                  a!8
+                  a!10
+                  a!11
+                  (and (= (q i) start) (= (x j) 0.0) (= (x i) 0.0) (not (= g i)) (not (= g j)))
+                  (and (= (q i) start) (= (x i) 0.0) (not (= g i)) (not (= g j)) (= (x j) 0.0))
+                  (and (= (q i) start) (= idle (q j)) (= (x i) 0.0) (not (= g i)) (not (= g j)))
+                  a!12
+                  (and (= (q i) check)
+                       (= start (q j))
+                       (= g i)
+                       (= (x j) 0.0)
+                       (&gt;= A 0.0)
+                       (= (x i) 0.0))
+                  (and (= (q i) check)
+                       (= idle (q j))
+                       (= g i)
+                       (= (x j) 0.0)
+                       (&gt;= A 0.0)
+                       (= (x i) 0.0))
+                  (and (= (q i) start)
+                       (= start (q j))
+                       (= (x i) 0.0)
+                       (= (x j) 0.0)
+                       (not (= g i)) (not (= g j)))
+                  (and (= (q i) start) (= (x i) 0.0) (= (x j) 0.0) (not (= g i)) (not (= g j)))
+                  (and (= (q i) start)
+                       (= idle (q j))
+                       (= (x j) 0.0)
+                       (= (x i) 0.0)
+                       (not (= g i)) (not (= g j)))
+                  (and (= (q i) start)
+                       (= idle (q j))
+                       (= (x i) 0.0)
+                       (not (= g i)) (not (= g j))
+                       (= (x j) 0.0))
+                  (and (= (q j) start)
+                       (= idle (q i))
+                       (= (x j) 0.0)
+                       (= (x i) 0.0)
+                       (not (= g i)) (not (= g j)))
+                  (and (= (q j) check)
+                       (= idle (q i))
+                       (= (x j) 0.0)
+                       (= g j)
+                       (= (x i) 0.0)
+                       (&gt;= A 0.0))
+                  (and (= idle (q i)) (= (q j) idle) (not (= g i)) (not (= g j)) (= (x i) 0.0))
+                  (and (= (q j) start)
+                       (= idle (q i))
+                       (= (x i) 0.0)
+                       (not (= g i)) (not (= g j))
+                       (= (x j) 0.0))
+                  (and (= (q j) check)
+                       (= idle (q i))
+                       (= g j)
+                       (= (x i) 0.0)
+                       (&gt;= A 0.0)
+                       (= (x j) 0.0))
+                  (and (= (q j) idle) (= idle (q i)) (not (= g i)) (not (= g j)) (= (x i) 0.0))
+                  a!13
+                  (and (= (q j) check)
+                       (= start (q i))
+                       (= g j)
+                       (= (x i) 0.0)
+                       (&gt;= A 0.0)
+                       (= (x j) 0.0))
+                  (and (= (q j) start)
+                       (= start (q i))
+                       (= (x i) 0.0)
+                       (not (= g i)) (not (= g j))
+                       (= (x j) 0.0))
+                  (and (= idle (q i)) (not (= g i)) (not (= g j)) (= (x j) 0.0) (= (x i) 0.0))
+                  (and (= idle (q i)) (= (x j) 0.0) (not (= g i)) (not (= g j)) (= (x i) 0.0))
+                  (and (= idle (q i)) (not (= g i)) (not (= g j)) (= (x i) 0.0) (= (x j) 0.0))
+                  (and (= idle (q i)) (= (x i) 0.0) (not (= g i)) (not (= g j)) (= (x j) 0.0))
+                  (and (= idle (q i)) (= idle (q j)) (= (x i) 0.0) (not (= g i)) (not (= g j)))
+                  a!14
+                  a!16
+                  a!17
+                  a!18
+                  (and (= start (q i))
+                       (= start (q j))
+                       (= (x j) 0.0)
+                       (not (= g i)) (not (= g j))
+                       (= (x i) 0.0))
+                  (and (= start (q i))
+                       (= start (q j))
+                       (not (= g i)) (not (= g j))
+                       (= (x j) 0.0)
+                       (= (x i) 0.0))
+                  (and (= start (q i))
+                       (= idle (q j))
+                       (= (x j) 0.0)
+                       (not (= g i)) (not (= g j))
+                       (= (x i) 0.0))
+                  (and (= start (q i))
+                       (= idle (q j))
+                       (not (= g i)) (not (= g j))
+                       (= (x j) 0.0)
+                       (= (x i) 0.0))
+                  (and (= idle (q i))
+                       (= start (q j))
+                       (not (= g i)) (not (= g j))
+                       (= (x j) 0.0)
+                       (= (x i) 0.0))
+                  (and (= idle (q i))
+                       (= start (q j))
+                       (= (x j) 0.0)
+                       (not (= g i)) (not (= g j))
+                       (= (x i) 0.0))
+                  (and (= idle (q i))
+                       (= start (q j))
+                       (not (= g i)) (not (= g j))
+                       (= (x i) 0.0)
+                       (= (x j) 0.0))
+                  (and (= idle (q i))
+                       (= idle (q j))
+                       (not (= g i)) (not (= g j))
+                       (= (x j) 0.0)
+                       (= (x i) 0.0))
+                  (and (= idle (q i))
+                       (= idle (q j))
+                       (= (x j) 0.0)
+                       (not (= g i)) (not (= g j))
+                       (= (x i) 0.0))
+                  (and (= idle (q i))
+                       (= idle (q j))
+                       (not (= g i)) (not (= g j))
+                       (= (x i) 0.0)
+                       (= (x j) 0.0)))))
+    (=&gt; (and (&gt;= i 1) (&lt;= i N) (&gt;= j 1) (&lt;= j N) (distinct i j)) a!19)))))' />
+-->
+	
+	
+	
+	<property equn='forall i j ((i != j) implies (q[i] != cs or q[j] != cs))' type='safety' comment='no two processes in critical section.' />
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+<!-- todo: check next	<property equn='forall i j (((q[i] == cs) implies (g = i)) and q[j] != waiting))' type='safety' comment='logical_aux1' /> -->
+
+<!--	<assumption type='inductive_invariant' equn='forall i j ((q[i] = 2 and q[j] != 3) implies (g != 0))' comment='test' />		-->
+<!--	<assumption type='inductive_invariant' equn='forall i j ((g == i and q[j] == waiting) implies (x[i] &gt; x[j]))' />		-->
+<!--	<assumption type='inductive_invariant' equn='forall i j ((q[i] == cs) implies (g == i and q[j] != waiting))' />			-->
+<!--
+<property equn='forall i j (true)' type='safety' />
+<property equn='forall i j (false)' type='safety' />
+<property equn='true' type='safety' />
+<property equn='false' type='safety' />
+<property equn='forall i j (i &gt;= 1 and i &lt;= N and j &gt;= 1 and j &lt;= N)' type='safety' />
+<property equn='forall i (q[i] &gt;= 0 and q[i] &lt;= 3)' type='safety' />
+<property equn='forall i (q[i] &lt; 0 and q[i] &gt; 3)' type='safety' />
+-->
+
+<!-- inductive invariants and strengthening from sri paper -->
+<!--
+	<property equn='forall i ((q[i] == waiting) implies (x[i] &lt; A))' type='safety' comment='' /> 
+	
+	
+	
+	<property equn='forall i ((q[i] == waiting) implies (x[i] &lt; A / 2.0))' type='safety' comment='' />
+
+	<property equn='forall i ((q[i] == waiting) implies (x[i] == 0.0))' type='safety' comment='' />
+	
+	<property equn='forall i (x[i] == 0.0)' type='safety' comment='' />
+	
+	<property equn='forall i (x[i] &lt; A)' type='safety' comment='' />
+	<property equn='forall i (x[i] &lt; B)' type='safety' comment='' />
+	
+	
+	<property equn='forall i ((q[i] != sleeping))' type='safety' />
+	<property equn='forall i ((q[i] != waiting))' type='safety' />
+	<property equn='forall i ((q[i] != trying))' type='safety' />
+	<property equn='forall i ((q[i] != cs))' type='safety' />
+
+
+
+
+
+	<property equn='forall i ((q[i] == waiting) implies (x[i] &lt;= A))' type='safety' comment='' />
+	<property equn='forall i ((q[i] == cs) implies (x[i] &gt;= B))' type='safety' />
+	<property equn='forall i j ((q[i] = cs and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	<property equn='forall i j ((g == i and q[i] = cs and g != j and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	<property equn='forall i j ((g == i and q[i] == cs and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	
+	<property equn='forall i ((q[i] == trying) implies (g != 0))' type='safety' />
+	<property equn='forall i j ((q[i] == trying and q[j] != cs) implies (g != 0))' type='safety' />
+	<property equn='forall i j ((q[i] == trying) implies (g != 0 and q[j] != cs))' type='safety' />
+
+<property equn='forall i ((((q[i] == waiting) implies (x[i] &lt;= A)) and ((q[i] == trying) implies (forall j ((g == i) and ((q[j] == waiting) implies (x[i] &gt; x[j])))))) and ((q[i] == cs or q[i] == trying) implies (g == i and (forall j (q[j] != waiting)))))' type='safety' comment='lamport' />
+
+
+
+<property equn='forall i ((q[i] == waiting) implies (x[i] &lt;= A))' type='safety' comment='lamport' />
+<property equn='forall i (((q[i] == trying) implies (forall j ((g == i) and ((q[j] == waiting) implies (x[i] &gt; x[j]))))))' type='safety' comment='lamport' />
+<property equn='forall i ((q[i] == cs or q[i] == trying) implies (g == i and (forall idxj (q[idxj] != waiting))))' type='safety' comment='lamport' />
+<property equn='forall i ((q[i] == cs or q[i] == trying) implies (g == i and (forall j (q[j] != waiting))))' type='safety' comment='lamport' />
+
+
+
+<property equn='forall i j ((q[i] == cs) implies (g = i and q[j] != waiting))' type='safety' comment='logical_aux1' />
+
+
+<property equn='forall i j ((q[i] == cs and x[j] &lt; B) implies (g == i and q[j] != waiting))' type='safety' comment='logical_aux1' />
+
+	<property equn='forall i ((g = i) implies (q[i] == cs))' type='safety' />	
+
+
+	<property equn='forall i ((q[i] == cs) implies (g = i))' type='safety' />
+	<property equn='forall i j ((i != j and q[i] == cs) implies (q[j] != cs))' type='safety' comment='no two processes in critical section.' />
+	<property equn='exists i j (q[i] == cs and q[j] == cs)' type='bad' comment='no two processes in critical section.' />
+
+	<property equn='forall i j ((i != j) implies (q[i] != cs or q[j] != cs))' type='safety' comment='no two processes in critical section.' />
+
+
+
+
+
+
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (B - x[i] &gt; A - x[j]))' type='safety' comment='' />
+	
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (B - x[i] &gt; x[j] - A))' type='safety' comment='' />
+
+
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (x[i] - B &gt; x[j] - A))' type='safety' comment='' />
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (x[i] - B &gt; A - x[j]))' type='safety' comment='' />
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' comment='' />
+
+
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (x[i] + A &gt; x[j] + B))' type='safety' comment='' />
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (x[i] + B &gt; x[j] + A))' type='safety' comment='' />
+
+
+
+	<property equn='forall i j ((q[i] == trying and g == i and q[j] == waiting) implies (x[i] - B &gt; x[j] + A))' type='safety' comment='' />
+
+
+
+
+
+
+	<property equn='forall i ((q[i] == waiting) implies (x[i] + A &lt;= x[i] + A))' type='safety' />
+	<property equn='forall i ((q[i] == waiting) implies (x[i] + A &gt;= x[i] + A))' type='safety' />
+	
+	<property equn='forall i (x[i] &lt;= x[i] + A)' type='safety' />
+	
+-->
+
+
+
+
+
+
+
+<!--
+	<property equn='forall i ((q[i] = trying) implies (exists j (g == j)))' type='safety' comment='' />
+	<property equn='forall i ((q[i] = trying or q[i] == cs) implies (exists j (g == j)))' type='safety' comment='' />
+	<property equn='exists i ((q[i] == cs) implies (g == i))' type='safety' />
+	<property equn='exists i ((q[i] == cs) implies (g == i and (forall j ((j != i) implies (q[j] != cs)))))' type='safety' />
+
+	
+	<property equn='forall i j ((q[i] == cs and q[j] != cs) implies (x[i] &gt; x[j]))' type='safety' />
+
+	<property equn='forall i j ((g == i and q[i] == cs and g != j and x[i] &gt; 0.0 and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	
+	<property equn='forall i j ((g == i and q[i] == trying and g != j and x[i] &gt; 0.0 and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	
+
+
+	<property equn='forall i j ((g == i and g != j and x[i] &gt; 0.0 and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	<property equn='forall i j ((g == i and g != j and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	<property equn='forall i j ((g == i and x[i] &gt; 0.0 and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	<property equn='forall i j ((g == i and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+	
+	
+	
+	<property equn='forall i j ((q[i] == cs and g != j) implies ((g = i) and (q[j] != waiting)))' type='safety' />
+	<property equn='forall i j ((q[i] == cs) implies ((g = i) and (q[j] != waiting)))' type='safety' />
+	
+
+
+	<property equn='forall i j ((q[i] == cs and x[j] &gt;= B and q[j] == trying) implies ((g = i)))' type='safety' />
+
+	<property equn='forall i j ((q[i] == cs and g == i and x[j] &lt; B) implies (q[j] != cs))' type='safety' comment='' />
+	<property equn='forall i j ((q[i] == cs and g == i) implies (q[j] != cs))' type='safety' comment='' />
+	<property equn='forall i j ((q[i] == cs and g == i) implies (q[j] != cs))' type='safety' comment='' />
+	<property equn='forall i j ((q[i] == cs and x[j] &lt; B) implies (g == i))' type='safety' comment='' />
+
+
+	<property equn='forall i ((q[i] = cs) implies (exists j (g == j)))' type='safety' comment='' />
+
+<property equn='forall i j ((g == i and q[j] == waiting) implies (x[i] &gt; x[j]))' type='safety' />
+
+<property equn='forall i j ((q[i] == cs) implies (g == i and q[j] != waiting))' type='safety' comment='logical_aux1' />
+
+
+<property equn='forall i j ((g == i and q[j] == waiting) implies (x[i] != x[j]))' type='safety' />
+<property equn='forall i j ((g == i and q[j] == waiting) implies (x[i] &lt; x[j]))' type='safety' />
+
+
+<property equn='forall i j ((i != j and q[i] == cs) implies (q[j] != trying))' type='safety' comment='' />
+<property equn='forall i j ((i != j and q[i] == cs) implies (q[j] != waiting))' type='safety' comment='' />
+<property equn='forall i j ((i != j and q[i] == cs) implies (g != j and q[j] != trying))' type='safety' comment='' />
+<property equn='forall i j ((i != j and q[i] == cs) implies (g != j and q[j] != waiting))' type='safety' comment='' />
+<property equn='forall i j ((i != j and q[i] == cs and x[j] &lt; B) implies (g != j and q[j] != trying))' type='safety' comment='' />
+<property equn='forall i j ((i != j and q[i] == cs and x[j] &lt; B) implies (g != j and q[j] != waiting))' type='safety' comment='' />
+<property equn='forall i j ((i != j and q[i] == cs and x[j] &lt; A) implies (g != j and q[j] != trying))' type='safety' comment='' />
+<property equn='forall i j ((i != j and q[i] == cs and x[j] &lt; A) implies (g != j and q[j] != waiting))' type='safety' comment='' />
+
+
+
+<property equn='forall i j ((q[i] == cs and x[j] &lt; B) implies (g == i and q[j] != waiting))' type='safety' comment='logical_aux1' />
+<property equn='forall i j ((q[i] == cs) implies (q[j] != waiting))' type='safety' comment='logical_aux1' />
+<property equn='forall i j ((q[i] == cs and g == i) implies (q[j] != waiting))' type='safety' comment='logical_aux1' />
+
+<property equn='forall i j ((q[i] == cs and g == i and g != j) implies (q[j] != waiting))' type='safety' comment='logical_aux1' />
+<property equn='forall i j ((q[i] == cs and g == i) implies (g != j and q[j] != waiting))' type='safety' comment='logical_aux1' />
+<property equn='forall i j ((g == i and q[j] != waiting) implies (q[i] == cs))' type='safety' comment='logical_aux1' />
+
+
+
+<property equn='forall i j ((i != j and q[i] == cs and x[j] &lt; B) implies (g == i and q[j] != waiting))' type='safety' comment='logical_aux1' />
+<property equn='forall i j ((i != j and q[i] == cs) implies (q[j] != waiting))' type='safety' comment='logical_aux1' />
+<property equn='forall i j ((i != j and q[i] == cs and g == i) implies (q[j] != waiting))' type='safety' comment='logical_aux1' />
+
+<property equn='forall i j ((i != j and q[i] == cs and g == i and g != j) implies (q[j] != waiting))' type='safety' comment='logical_aux1' />
+<property equn='forall i j ((i != j and q[i] == cs and g == i) implies (g != j and q[j] != waiting))' type='safety' comment='logical_aux1' />
+
+
+
+
+<property equn='forall i ((q[i] == cs and g == i) implies (forall j (g != j and q[j] != waiting)))' type='safety' comment='' />
+<property equn='forall i ((q[i] == cs and g == i) implies (forall j (i != j implies (g != j and q[j] != waiting))))' type='safety' comment='' />
+
+
+
+<property equn='forall i ((q[i] == cs and g == i) and (forall j (g != j and q[j] != waiting)))' type='safety' comment='' />
+<property equn='forall i ((q[i] == cs and g == i) and (forall j (i != j implies (g != j and q[j] != waiting))))' type='safety' comment='' />
+
+<property equn='forall i ((q[i] == cs and g == i) iff (forall j (g != j and q[j] != waiting)))' type='safety' comment='' />
+<property equn='forall i ((q[i] == cs and g == i) iff (forall j (i != j implies (g != j and q[j] != waiting))))' type='safety' comment='' />
+
+
+	<property equn='forall i j ((q[i] == cs and q[j] != cs and x[j] &lt; A) implies (g = i and g != j))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and q[j] != cs and x[j] &gt; A) implies (g = i and g != j))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and q[j] != cs and x[j] = A) implies (g = i and g != j))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and x[j] &lt; A) implies (g = i and g != j))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and x[j] &gt; A) implies (g = i and g != j))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and x[j] = A) implies (g = i))' type='safety' />
+
+	<property equn='forall i j ((q[i] == cs and q[j] != cs and x[j] &lt; A) implies (g = i))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and q[j] != cs and x[j] &gt; A) implies (g = i))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and q[j] != cs and x[j] = A) implies (g = i))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and x[j] &lt; A) implies (g = i))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and x[j] &gt; A) implies (g = i))' type='safety' />
+	<property equn='forall i j ((q[i] == cs and x[j] = A) implies (g = i))' type='safety' />
+-->
+
+
+<!--
+
+	<property equn='forall i ((q[i] == sleeping))' type='safety' />
+	<property equn='forall i ((q[i] == waiting))' type='safety' />
+	<property equn='forall i ((q[i] == trying))' type='safety' />
+	<property equn='forall i ((q[i] == cs))' type='safety' />
+-->	
+	
+	
+	
+
+</holism>

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<holism>
+	<parameter name='N' type='index' comment='number of processes in the system' />
+	<parameter name='A' type='real' comment='smaller constant' />
+	<parameter name='B' type='real' comment='larger constant' />
+	
+	<variable name='g' initially='g == 0' type='index' update_type='Discrete' comment='lock' />
+	
+	<variable name='x' initially='x == 0.0' type='nnreal' update_type='continuous' />
+	
+	<assumption equn='A &gt; 0.0 and B &gt; 0.0 and A &lt; B' comment='A *stictly less than* B for mutual exclusion' />
+	<assumption equn='A == 3.0 and B == 19.0' comment='invariant generation requires chosen values for A and B' />
+	<assumption equn='N &gt;= 2 and N &lt;= 3' comment='' />
+
+	<automaton name='fischer_umeno_global_clock'>
+		<variable name='last[i]' initially='last[i] == A' type='nnreal' update_type='Discrete' comment='' />
+		<variable name='first[i]' initially='first[i] == 0.0' type='nnreal' update_type='Discrete' comment='' />
+		
+<!--
+		<mode id='0' name='rem' initial='True'>
+			<dai variable='x' equn='x_dot = 1.0'/>
+		</mode>
+-->
+
+<!--		<mode id='1' name='test' initial='False'>	-->
+		<mode id='1' name='test' initial='True'>
+			<dai variable='x' equn='x_dot = 1.0'/>
+		</mode>
+		
+		<mode id='2' name='set' initial='False'>
+			<dai variable='x' equn='x_dot = 1.0'/>
+			<invariant equn='x &lt;= last[i]' />
+			<stop equn='x &gt;= last[i]' />
+		</mode>
+		
+		<mode id='3' name='check' initial='False'>
+			<dai variable='x' equn='x_dot = 1.0'/>
+		</mode>
+		
+		<mode id='4' name='crit' initial='False'>
+			<dai variable='x' equn='x_dot = 1.0'/>
+		</mode>
+<!--
+		<transition source='rem' destination='test'>
+		</transition>
+-->
+
+		<transition source='test' destination='test'>
+			<guard equn='g != 0' />
+		</transition>
+
+		<transition source='test' destination='set'>
+			<guard equn='g == 0' />
+			<action equn='last[i]&apos; = x + A'/>
+		</transition>
+		
+		<transition source='set' destination='check'>
+			<action equn='g&apos; = i and first[i]&apos; = x + B'/>
+		</transition>
+		
+		<transition source='check' destination='test'>
+			<guard equn='g != i and x &gt;= first[i]' />
+			<action equn='first[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='check' destination='crit'>
+			<guard equn='g == i and x &gt;= first[i]' />
+		</transition>
+		
+<!--		<transition source='crit' destination='rem'> -->
+		<transition source='crit' destination='test'>
+			<action equn='g&apos; = 0'/>
+		</transition>
+	</automaton>
+	
+	<!--
+	<property equn='forall i ((q[i] == set) implies (last[i] &lt;= x + A))' type='safety' />
+	<property equn='forall i ((q[i] == set) implies (x &lt;= last[i]))' type='safety' />
+
+	<property equn='forall i (x &lt;= last[i])' type='safety' />
+
+	<property equn='forall i j ((q[i] == check and q[j] == set and g == i) implies  (first[i] &gt; last[j] ))' type='safety' comment='key lemma for showing stronger inductive property' />
+	<property equn='forall i j ((q[i] == crit) implies (g == i and q[j] != set))' type='safety' comment='stronger inductive property that implies mutual exclusion' />
+	-->
+	
+	
+	
+	
+	<property equn='forall i (q[i] == test or q[i] == set or q[i] == check or q[i] == crit)' type='safety' />
+	<property equn='forall i j ((i != j) implies ((q[i] == test or q[i] == set or q[i] == check or q[i] == crit) and (q[j] == test or q[j] == set or q[j] == check or q[j] == crit)))' type='safety' />
+	
+	
+	
+	<property equn='forall i j ((i != j) implies (q[i] != crit or q[j] != crit))' type='safety' comment='mutual exclusion property' />
+	
+
+<!-- properties below this line are for sanity and bug checking
+
+	<property equn='forall i (true)' type='safety' />
+	<property equn='true' type='safety' />
+
+	<property equn='forall i (false)' type='safety' />
+	<property equn='false' type='safety' />
+	
+	<property equn='forall i (q[i] &gt;= rem and q[i] &lt;= crit)' type='safety' />
+	<property equn='forall i (first[i] &gt;= 0.0)' type='safety' />
+	<property equn='forall i (last[i] &gt;= 0.0)' type='safety' />
+	<property equn='forall i (x &gt;= 0.0)' type='safety' />
+	<property equn='x &gt;= 0.0' type='safety' />
+	
+	<property equn='forall i (q[i] == rem)' type='safety' />
+	<property equn='forall i (q[i] == test)' type='safety' />
+	<property equn='forall i (q[i] == set)' type='safety' />
+	<property equn='forall i (q[i] == check)' type='safety' />
+	<property equn='forall i (q[i] == crit)' type='safety' />
+
+	<property equn='forall i (q[i] != rem)' type='safety' />
+	<property equn='forall i (q[i] != test)' type='safety' />
+	<property equn='forall i (q[i] != set)' type='safety' />
+	<property equn='forall i (q[i] != check)' type='safety' />
+	<property equn='forall i (q[i] != crit)' type='safety' />
+	<property equn='forall i (q[i] &lt; rem or q[i] &gt; crit)' type='safety' />
+	
+	<property equn='forall i j ((q[i] == crit and g == i) implies (q[j] != set))' type='safety' />
+	<property equn='forall i j ((q[i] == crit and q[j] != set) implies (g == i))' type='safety' />
+	<property equn='forall i j ((q[i] == crit and q[j] == set) implies (g == i))' type='safety' />
+ -->
+</holism>

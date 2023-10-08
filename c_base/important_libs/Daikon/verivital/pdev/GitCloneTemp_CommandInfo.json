@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/pdev undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/pdev",
+    "repo": "https://github.com/verivital/pdev",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/pdev",
+    "startTime": "2023-09-17T18:23:39.147Z",
+    "endTime": "2023-09-17T18:23:44.441Z",
+    "childProcessPid": 20954,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--pdev--20954",
+    "executionErrors": []
+}

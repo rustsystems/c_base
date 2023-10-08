@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<holism>
+	<parameter name='N' type='index' comment='number of processes in the system' />
+	<parameter name='A' assumption='A == 5.0' type='real' comment='smaller constant' />
+	<parameter name='B' assumption='B == 50.0' type='real' comment='larger constant' />
+	
+	<parameter name='lb' assumption='lb == 1.0' type='real' comment='lower rate' />
+	<parameter name='ub' assumption='ub == 2.0' type='real' comment='upper rate' />
+	
+	<variable name='g' initially='g == 0' type='index' update_type='Discrete' comment='lock' />
+	
+<!--	<assumption equn='A &gt; 0.0 and B &gt; 0.0 and A &lt; B' comment='A *stictly less than* B for mutual exclusion; this can be used without parameter values (but then invariant synthesis will not work, but we need actual values for phaver)' />	-->
+	
+	<assumption equn='N &gt;= 2' comment='' />
+
+	<automaton name='fischer_phaver_const'>
+		<variable name='x[i]' initially='x[i] == 0.0' type='nnreal' update_type='Continuous' />
+		
+		<mode id='0' name='rem' initial='True'>
+			<dai variable='x[i]' equn='x[i]_dot = 0.0'/>
+		</mode>
+
+		<mode id='1' name='try' initial='False'>
+			<invariant equn='x[i] &lt;= A' />
+			<stop equn='x[i] &gt;= A' />
+			<dai variable='x[i]' equn='x[i]_dot &gt;= lb and x[i]_dot &lt;= ub'/>
+		</mode>
+		
+		<mode id='2' name='waits' initial='False'> <!-- cannot use wait as a state name (phaver keyword) -->
+			<dai variable='x[i]' equn='x[i]_dot &gt;= lb and x[i]_dot &lt;= ub'/>
+		</mode>
+		
+		<mode id='3' name='cs' initial='False'>
+			<dai variable='x[i]' equn='x[i]_dot = 0.0'/>
+		</mode>
+		
+		<transition source='rem' destination='try'>
+			<guard equn='g == 0' />
+			<action equn='x[i]&apos; = 0.0' />
+		</transition>
+
+		<transition source='try' destination='waits'>
+			<action equn='g&apos; = i and x[i]&apos; = 0.0'/>
+		</transition>
+
+		<transition source='waits' destination='cs'>
+			<guard equn='g == i and x[i] &gt;= B' />
+			<action equn='x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='waits' destination='rem'>
+			<guard equn='g != i and x[i] &gt;= B' />
+			<action equn='x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='cs' destination='rem'>
+			<action equn='g&apos; = 0 and x[i]&apos; = 0.0'/>
+		</transition>
+	</automaton>
+
+	<property equn='true' type='safety' />
+
+
+	<property equn='forall i ((q[i] == try) implies (x[i] &lt;= A))' type='safety' />
+<!--	<property equn='forall i j ((q[i] == waits and q[j] == try) implies (g == i implies (B - A) &gt; (x[i] - x[j])))' type='safety' /> -->
+	<property equn='forall i j ((q[i] == waits and g == i and q[j] == try) implies ((B - A)*((ub - lb)/ub) &gt; (x[i] - x[j])))' type='safety' />
+<!-- crash... --> <!--	<property equn='forall i j ((q[i] == waits and g == i and q[j] == try) implies ((B - A)*((ub - lb)/lb) &gt; (x[i] - x[j])))' type='safety' /> -->
+	<property equn='forall i j ((q[i] == waits and g == i and q[j] == try) implies ((B - A) &gt; (x[i] - x[j])))' type='safety' />
+	
+	<property equn='forall i j ((q[i] == cs) implies (g == i and q[j] != try))' type='safety' />
+
+<!--	<property equn='forall i j ((q[i] == waits and g == i and q[j] == try) implies ((B - A) &gt; (x[i] - x[j])))' type='safety' />-->
+<!--	<property equn='forall i j ((i != j and q[i] == cs) implies (g == i and (q[j] == rem or q[j] == waits)))' type='safety' />-->
+<!--	<property equn='forall i j ((i != j and q[i] == waits and g == i and q[j] == try) implies ((b - (x[i] + (ub-lb)/ub)) &gt; (A - (x[j] + (ub-lb)/lb))))' type='safety' /> -->
+
+	
+
+
+<!--	<property equn='forall i j ((i != j) implies (q[i] != cs or q[j] != cs))' type='safety' /> 	-->
+	<property equn='forall i j ((i != j and q[i] == cs) implies (q[j] != cs))' type='safety' />
+
+
+	<property equn='false' type='safety' />
+
+
+
+</holism>

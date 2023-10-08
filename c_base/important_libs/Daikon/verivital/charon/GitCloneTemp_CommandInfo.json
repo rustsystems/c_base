@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/charon undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/charon",
+    "repo": "https://github.com/verivital/charon",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/charon",
+    "startTime": "2023-09-17T18:11:41.836Z",
+    "endTime": "2023-09-17T18:11:44.538Z",
+    "childProcessPid": 20148,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--charon--20148",
+    "executionErrors": []
+}

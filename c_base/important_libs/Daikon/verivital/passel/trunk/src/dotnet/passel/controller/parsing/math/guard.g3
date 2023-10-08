@@ -1,0 +1,334 @@
+grammar guard;
+options {
+    language=CSharp3;
+    TokenLabelType=CommonToken;
+    output=AST;
+    ASTLabelType=CommonTree;
+	backtrack=true;
+}
+
+tokens
+{
+	RESET_VARIABLE;
+	RESET_INDEXED_VARIABLE;
+	DYNAMICS_VARIABLE;
+	DYNAMICS_INDEXED_VARIABLE;
+	VARIABLE;
+	INDEXED_VARIABLE;
+	QUANTIFIER_FORALL;
+	QUANTIFIER_EXISTS;
+	UNARY_MINUS;
+}
+
+// these directives MUST appear AFTER tokens
+@parser::namespace{passel.controller.parsing.math}
+@lexer::namespace{passel.controller.parsing.math}
+
+@members {
+	ArrayList exceptions = new ArrayList();
+
+	public override void ReportError(RecognitionException e)
+	{
+		exceptions.Add(e);
+	}
+
+	public bool HasError
+	{
+		get { return exceptions.Count > 0; }
+	}
+
+	public string ErrorMessage
+	{
+		get { return this.GetErrorMessage(exceptions[0] as RecognitionException, this.TokenNames); }
+	}
+
+	public string ErrorPosition
+	{
+		get { return this.GetErrorHeader(exceptions[0] as RecognitionException); }
+	}
+}
+
+@header {
+	using System.Collections;
+}
+
+expression
+	:	logicalExpression EOF!
+	;
+// |	logicalExpression ((IF^ logicalExpression THEN^ logicalExpression ELSE^ logicalExpression)^ logicalExpression)* EOF!
+// |	logicalExpression ((ITE^ logicalExpression logicalExpression logicalExpression) logicalExpression)* EOF!
+		
+logicalExpression
+	:	booleanAndExpression ((OR | XOR | IMPLY | IFF)^ booleanAndExpression )*
+	;
+
+//	|	booleanAndExpression ((IF^ booleanAndExpression THEN^ booleanAndExpression ELSE^ booleanAndExpression)? booleanAndExpression)*
+
+OR 	: 	'||' | 'or';
+XOR :	'xor';
+IMPLY	:	'implies' | 'imply' | '=>' | '=&gt;';
+IFF	:	'iff' | 'xnor' | '<=>' | '&lt;=&gt;';
+ITE :	'ite' | 'ifthenelse';
+IF : 'if';
+THEN : 'then' | '?';
+ELSE : 'else' | ':';
+// todo ite: buggy, need to fix precedence
+	
+booleanAndExpression
+	:	equalityExpression (AND^ equalityExpression)*
+	;
+
+AND 	: 	'&&' | 'and';
+
+equalityExpression
+	//:	(doubleRelationalExpression|relationalExpression) ((EQUALS|NEQUALS)^ (doubleRelationalExpression|relationalExpression))*
+	:	relationalExpression ((EQUALS|NEQUALS)^ relationalExpression)*
+	;
+
+EQUALS	:	'='		| '==';
+NEQUALS	:	'!='	| '~=';
+
+// output from phaver reach sets can be of the form: a <= x <= b, where x is a variable and a and b are two constant values, so let's rewrite this to a <= x and x <= b
+/*
+doubleRelationalExpression
+	:   (l=additiveExpression LTEQ m=additiveExpression LTEQ r=additiveExpression)   -> ^(AND ^(GTEQ $m $l ) ^(LTEQ $m $r))
+	|   (l=additiveExpression LTEQ m=additiveExpression LT   r=additiveExpression)   -> ^(AND ^(GTEQ $m $l ) ^(LT $m $r))
+	|   (l=additiveExpression LT   m=additiveExpression LTEQ r=additiveExpression)   -> ^(AND ^(GT $m $l )   ^(GTEQ $m $r))
+	|   (l=additiveExpression GTEQ m=additiveExpression GT   r=additiveExpression)   -> ^(AND ^(LTEQ $m $l ) ^(GT $m $r))
+	|   (l=additiveExpression GT   m=additiveExpression GTEQ r=additiveExpression)   -> ^(AND ^(LT $m $l )   ^(GTEQ $m $r))
+	//|   (l=additiveExpression GTEQ m=additiveExpression GTEQ r=additiveExpression    -> ^(AND ^(LTEQ $m $l ) ^(GTEQ $m $r))
+	|   (l=additiveExpression LT   m=additiveExpression LT   r=additiveExpression)   -> ^(AND ^(GT $m $l ) ^(LT $m $r))
+	|   (l=additiveExpression GT   m=additiveExpression GT   r=additiveExpression)   -> ^(AND ^(LT $m $l ) ^(GT $m $r))
+	// add combinations thereof...? couldn't get (LT | LTEQ) to work in replace rule, maybe need to name the token as a variable or something
+	;*/
+
+/* // conditional example
+a : ^(ID INT) -> {some test}? ^(ID["ick"] INT)
+              -> INT
+  ;
+
+additiveExpression
+	:	(a=multiplicativeExpression->$a) // set result
+                (    '+' b=multiplicativeExpression
+                     -> ^('+' $additiveExpression $b) // use previous rule result
+                )*
+	;
+*/
+
+// sources
+// very good overview: http://stackoverflow.com/questions/3056441/what-is-a-semantic-predicate-in-antlr
+// http://www.antlr.org/wiki/display/ANTLR3/Tree+construction
+// http://www.antlr.org/wiki/display/~admin/2007/06/28/Token+stream+rewriting+with+rewrite+rules
+// http://stackoverflow.com/questions/2409628/in-antlr-how-do-you-specify-a-specific-number-of-repetitions
+
+
+relationalExpression
+	: additiveExpression ( (LT|LTEQ|GT|GTEQ)^ additiveExpression)*
+	;
+	
+
+/*
+relationalExpression returns [CommonTree res]
+	// semantic predicate version: create a conjunction for chains of inequalities, but if count is <= 1, don't create a conjunction
+	@init { int count = 0; $res = new CommonTree(); }
+	: (l=additiveExpression -> $l) ( (m = LT| m = LTEQ| m = GT| m = GTEQ) r=additiveExpression { ++count; if (count == 0) { ; } else if (count == 1) { $res.Type = $m.Type; $res.AddChild((ITree)l); $res.AddChild((ITree)r); } else if (count > 1) { $res.Type = AND;  $res.AddChild((ITree)l); $res.AddChild((ITree)r); }  } )*
+*/
+	//: additiveExpression ( (LT|LTEQ|GT|GTEQ)^ additiveExpression { count++; } )*
+	//: l=additiveExpression ( (m = LT | m = LTEQ | m = GT | m = GTEQ)^ r=additiveExpression { ++count; } )* -> {count == 0}? $l
+	//																									   -> {count == 1}? ^($m $l $r)
+	//																									   -> ^(AND ($relationalExpression $m $r)*)
+
+/////	ID '(' ( logicalExpression (',' logicalExpression)* )? ')' -> ^(ID logicalExpression*)
+/*
+	:   (l=additiveExpression LTEQ m=additiveExpression LTEQ r=additiveExpression)   -> ^(AND ^(GTEQ $m $l ) ^(LTEQ $m $r))
+	|   (l=additiveExpression LTEQ m=additiveExpression LT   r=additiveExpression)   -> ^(AND ^(GTEQ $m $l ) ^(LT $m $r))
+	|   (l=additiveExpression LT   m=additiveExpression LTEQ r=additiveExpression)   -> ^(AND ^(GT $m $l )   ^(GTEQ $m $r))
+	|   (l=additiveExpression GTEQ m=additiveExpression GT   r=additiveExpression)   -> ^(AND ^(LTEQ $m $l ) ^(GT $m $r))
+	|   (l=additiveExpression GT   m=additiveExpression GTEQ r=additiveExpression)   -> ^(AND ^(LT $m $l )   ^(GTEQ $m $r))
+	//|   (l=additiveExpression GTEQ m=additiveExpression GTEQ r=additiveExpression    -> ^(AND ^(LTEQ $m $l ) ^(GTEQ $m $r))
+	|   (l=additiveExpression LT   m=additiveExpression LT   r=additiveExpression)   -> ^(AND ^(GT $m $l ) ^(LT $m $r))
+	|	(l=additiveExpression GT   m=additiveExpression GT   r=additiveExpression)   -> ^(AND ^(LT $m $l ) ^(GT $m $r))
+	|	(l=additiveExpression -> $l) (m=(LT|LTEQ|GT|GTEQ) r=additiveExpression		 -> ^($m $relationalExpression $r) )*
+	//|	additiveExpression ( (LT|LTEQ|GT|GTEQ)^ additiveExpression )*
+	//:	additiveExpression ( (LT|LTEQ|GT|GTEQ)^ additiveExpression )*
+	*/
+//	;
+
+	/*
+	(a=multiplicativeExpression->$a) // set result
+                (    '+' b=multiplicativeExpression
+                     -> ^('+' $additiveExpression $b) // use previous rule result
+                )*
+
+				*/
+
+LT		:	'<'		| '&lt;';
+LTEQ	:	'<='	| '&lt;=';
+GT		:	'>'		| '&gt;';
+GTEQ	:	'>='	| '&gt;=';
+
+additiveExpression
+	:	multiplicativeExpression ( (PLUS|MINUS)^ multiplicativeExpression )*
+	;
+
+PLUS	:	'+';
+MINUS	:	'-';
+
+multiplicativeExpression 
+	:	powerExpression ( (MULT|DIV|MOD)^ powerExpression )*
+	;
+	
+MULT	:	'*';
+DIV		:	'/';
+MOD		:	'%';
+
+powerExpression 
+	:	unaryExpression ( POW^ unaryExpression )*
+	;
+	
+POW	:	'^';
+
+unaryExpression
+	:	primaryExpression
+    |	NOT^ primaryExpression
+    |	MINUS primaryExpression -> ^(UNARY_MINUS primaryExpression)
+	|	IF primaryExpression THEN primaryExpression ELSE primaryExpression -> ^(ITE primaryExpression primaryExpression primaryExpression)
+	|	TOREAL^ primaryExpression
+	|	TOINT^ primaryExpression
+   	;
+  
+NOT	:	'!' | 'not';
+TOREAL : 'ToReal' | 'toReal' | 'to_real';
+TOINT : 'ToInt' | 'toInt' | 'to_int';
+
+primaryExpression
+	:	'('! logicalExpression ')'!
+	|	value
+	;
+
+//DISTINCT	:	'distinct';
+
+value	
+	: 	INTEGER
+	|	FLOAT
+	|	BOOLEAN
+	|	BITVECTOR
+	|	function
+	|	reset_indexed_variable
+	|	reset_variable
+	|	dynamics_indexed_variable
+	|	dynamics_variable
+	|	indexed_variable
+	|	quantifier_forall
+	|	quantifier_exists
+	|	variable
+	;
+
+INTEGER
+	:	DIGIT+
+	;
+
+FLOAT
+	:	DIGIT* '.' DIGIT+ E?
+	|    DIGIT+ E
+	;
+
+BITVECTOR
+	//:	'#b' ('0' | '1')+
+	:	'#b' ('0'..'9')+ // easier for z3 support
+	;
+
+E    :    ('E'|'e') ('+'|'-')? DIGIT+ 
+    ;    
+
+BOOLEAN
+	:	'true'
+	|	'false'
+	;
+
+
+// declare after the BOOLEAN token
+function
+	:	ID '(' ( logicalExpression (',' logicalExpression)* )? ')' -> ^(ID logicalExpression*)
+	;
+
+quantifier_forall
+	:	'forall' variable+ logicalExpression+ -> ^(QUANTIFIER_FORALL variable+ logicalExpression+)
+	;
+
+quantifier_exists
+	:	'exists' variable+ logicalExpression+ -> ^(QUANTIFIER_EXISTS variable+ logicalExpression+)
+	;
+
+// declare after the function token
+reset_indexed_variable
+	:	indexed_variable ('\'' | '&apos;') -> ^(RESET_INDEXED_VARIABLE indexed_variable?)
+	;
+
+reset_variable
+	:	(variable) ('\'' | '&apos;') -> ^(RESET_VARIABLE variable?)
+	;
+
+// declare after the function token
+dynamics_indexed_variable
+	:	indexed_variable '_dot' -> ^(DYNAMICS_INDEXED_VARIABLE indexed_variable?)
+	;
+
+// declare after the function token
+dynamics_variable
+	:	variable '_dot' -> ^(DYNAMICS_VARIABLE variable?)
+	;
+
+indexed_variable
+	:	ID ( '[' additiveExpression  ']' ) -> ^(INDEXED_VARIABLE ID? additiveExpression? )
+	;
+
+/*
+indexed_variable
+	:	a=ID ( '[' (b=ID | b=INTEGER) ']' | '[' indexed_variable ']' ) -> ^(INDEXED_VARIABLE $a $b* indexed_variable*)
+	;
+*/
+
+// declare after all the other tokens
+variable
+	:	ID -> ^(VARIABLE ID?)
+	;
+
+ID 
+	:	LETTER (LETTER | DIGIT)*
+	;
+
+fragment LETTER
+	:	'a'..'z'
+	|	'A'..'Z'
+	;
+// todo: don't allow underscores in variable names for now due to using x_dot for dynamics, perhaps find another way to handle this, then add the following to letter
+// 	|	'_'
+
+fragment DIGIT
+    :    '0'..'9'
+    ;
+
+fragment EscapeSequence 
+	:	'\\'
+  	(	
+  		'n' 
+	|	'r' 
+	|	't'
+	|	'\'' 
+	|	'\\'
+	|	UnicodeEscape
+	)
+  ;
+
+fragment UnicodeEscape
+    	:    	'u' HexDigit HexDigit HexDigit HexDigit 
+    	;
+
+fragment HexDigit 
+	: 	('0'..'9'|'a'..'f'|'A'..'F') ;
+
+/* Ignore white spaces */	
+WS	:  (' '|'\r'|'\t'|'\u000C'|'\n') {$channel=Hidden;}
+	;
+

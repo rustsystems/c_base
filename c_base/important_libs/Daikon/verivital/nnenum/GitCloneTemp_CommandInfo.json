@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/verivital/nnenum undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/nnenum",
+    "repo": "https://github.com/verivital/nnenum",
+    "targetPath": "undefined\\veri--09-17-2023--ca1wRUfpwjdTfYBpBM12P9/nnenum",
+    "startTime": "2023-09-17T18:19:09.497Z",
+    "endTime": "2023-09-17T18:19:22.653Z",
+    "childProcessPid": 20792,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/Daikon/workingdir/--verivital--nnenum--20792",
+    "executionErrors": []
+}

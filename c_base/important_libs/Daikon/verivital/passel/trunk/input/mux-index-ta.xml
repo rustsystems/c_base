@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+
+<holism>
+	<parameter name='N' type='index' comment='number of processes in the system' />
+<!--
+	<parameter name='arem' assumption='arem == 1.0' type='real' comment='lower rate' />
+	<parameter name='brem' assumption='brem == 2.0' type='real' comment='lower rate' />
+	<parameter name='atry' assumption='atry == 3.0' type='real' comment='lower rate' />
+	<parameter name='btry' assumption='btry == 4.0' type='real' comment='lower rate' />
+	<parameter name='acs' assumption='acs == 5.0' type='real' comment='lower rate' />
+	<parameter name='bcs' assumption='bcs == 6.0' type='real' comment='lower rate' />
+-->
+	
+	
+	<variable name='g' initially='g == 0' type='index' update_type='Discrete' comment='lock' />
+	
+	
+	<assumption equn='N &gt;= 2' comment='' />
+
+	<automaton name='mux-index-ta'>
+		<variable name='x[i]' initially='x[i] == 0.0' type='nnreal' update_type='Continuous' />
+
+		<mode id='0' name='rem' initial='True'>
+			<dai variable='x[i]' equn='x[i]_dot = 1.0'/>
+		</mode>
+
+		<mode id='1' name='try' initial='False'>
+			<dai variable='x[i]' equn='x[i]_dot = 1.0'/>
+		</mode>
+		
+		<mode id='2' name='cs' initial='False'>
+			<dai variable='x[i]' equn='x[i]_dot = 1.0'/>
+		</mode>
+		
+		<transition source='rem' destination='try'>
+			<guard equn='g == 0 and x[i] &gt;= 5.0' />
+			<uguard equn='x[j] &gt;= 10.0' />
+			<action equn='g&apos; = i and x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='try' destination='cs'>
+			<guard equn='g == i and x[i] &gt;= 10.0' />
+			<action equn='x[i]&apos; = 0.0'/>
+		</transition>
+		
+		<transition source='cs' destination='rem'>
+			<guard equn='x[i] &gt;= 15.0' />
+			<action equn='g&apos; = 0 and x[i]&apos; = 0.0'/>
+		</transition>
+	</automaton>
+
+
+	<property equn='true' type='safety' />
+	
+	<property equn='forall i j ((i != j and q[i] == cs) implies (q[j] != cs))' type='safety' />
+	
+	<property equn='false' type='safety' />
+
+
+
+</holism>
