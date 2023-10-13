@@ -1,0 +1,14 @@
+# pack-refs with: peeled fully-peeled sorted 
+37511e86a1018a8972b5b1bf0041be297247a7da refs/remotes/origin/2023-01-monthly-report
+d70fbcf153879d04cc1d1a86020f28431c283115 refs/remotes/origin/2023-05-monthly-report
+fcb83d3473d80e32b19732449721290feae01462 refs/remotes/origin/2023-07-monthly-report
+e0cdd83fa2d0b52f6efdb498e18fe421ac0c8139 refs/remotes/origin/add-local-instructions-readme
+c6a796c6fc686cf60e9eaabdc7fd3202b8265948 refs/remotes/origin/empty
+f1c000cbdb8dbce3b426340cc2ba5e41f875a84f refs/remotes/origin/fix-contributor-list-june-monthly
+94150af6718bac000b2d6d63053b703702ef5153 refs/remotes/origin/fix-kirmayer-url
+9ed982d09deb36f4472b964378626d09c9614ded refs/remotes/origin/fix-planned-activities-2023-04
+f439418742b6196a6887ceb37beb92dd02ac4480 refs/remotes/origin/gcc13-release-and-gccrs
+1b16fa71c8e20c61d756fabfeaf3249fb5ca93ac refs/remotes/origin/main
+4276342233050e9885a7414beee89d52aa727654 refs/remotes/origin/remove-copyright-assignment-reference
+7db45b2a8939474b3841ca66fc5713f07923773c refs/remotes/origin/switch-themes
+c6c143a512f8a54b04944f9f3cb8201e47a05802 refs/remotes/origin/update-developers

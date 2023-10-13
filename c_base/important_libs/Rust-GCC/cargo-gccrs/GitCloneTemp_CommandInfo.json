@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/Rust-GCC/cargo-gccrs undefined\\RGCC--09-17-2023--8HeEGAFF1N2Ut1tR24tm63/cargo-gccrs",
+    "repo": "https://github.com/Rust-GCC/cargo-gccrs",
+    "targetPath": "undefined\\RGCC--09-17-2023--8HeEGAFF1N2Ut1tR24tm63/cargo-gccrs",
+    "startTime": "2023-09-17T16:39:19.201Z",
+    "endTime": "2023-09-17T16:39:20.080Z",
+    "childProcessPid": 89422,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/workingdir/--Rust-GCC--cargo-gccrs--89422",
+    "executionErrors": []
+}

@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+e488a8fbe719c2e31aaa672cadc0d1e745b3968b refs/remotes/origin/2022-11-14-report.org
+03d35dd44da6127e4f5de0b03716e5dca8efed16 refs/remotes/origin/2023-07-24-report.org
+d6915b0f6705989eefcf441c9f1fe4ef26108495 refs/remotes/origin/2023-08-monthly-report
+bc78334bebe52396a1f777e427b837fbe6e6b0dd refs/remotes/origin/2023-09-11-report.org
+db7fcaf8f3c1eaf430bd03e726b11a6d2ef4f139 refs/remotes/origin/main
+b09182f3f3aa9bfd8fdb99d7bb0a26eed15f149e refs/remotes/origin/philberty-patch-1
+edc1e814fcc701e5ff4dfa4160226423d1ae7548 refs/remotes/origin/report-generator

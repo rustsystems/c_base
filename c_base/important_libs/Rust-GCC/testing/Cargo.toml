@@ -1,0 +1,14 @@
+[package]
+edition = "2021"
+name = "testsuite-adaptor"
+version = "0.1.0"
+
+[dependencies]
+anyhow = "1.0"
+clap = { version = "4.4.2", features = ["derive"] }
+colored = "2.0"
+rayon = "1.7"
+thiserror = "1.0"
+wait-timeout = "0.2"
+walkdir = "2.3"
+which = "4.4"

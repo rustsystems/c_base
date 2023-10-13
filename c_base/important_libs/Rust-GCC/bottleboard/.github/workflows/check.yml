@@ -1,0 +1,26 @@
+name: bottleboard-checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+env:
+  RUSTFLAGS: '-Dwarnings'
+
+jobs:
+  check-build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [bottlecache, dashboard]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Check and check
+      run: |
+        cd ${{ matrix.project }}
+        cargo fmt -- --check
+        cargo clippy
+        cargo test

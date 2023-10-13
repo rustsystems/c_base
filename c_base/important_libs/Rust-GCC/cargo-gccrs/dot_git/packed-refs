@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled sorted 
+5ef9fd1e127e512543ae61f7e9f4a8e057921789 refs/remotes/origin/add-bors
+c40902d3ef142d8447c242a08329996828984cce refs/remotes/origin/main
+87a917347f756820823edbd18b8d60a12789c09a refs/remotes/origin/rework-gccrs-arguments
+3392a6fc75baa45e764f86bf7d17d4d5b20c9a2a refs/remotes/origin/staging

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/Rust-GCC/Rust-GCC.github.io undefined\\RGCC--09-17-2023--8HeEGAFF1N2Ut1tR24tm63/Rust-GCC.github.io",
+    "repo": "https://github.com/Rust-GCC/Rust-GCC.github.io",
+    "targetPath": "undefined\\RGCC--09-17-2023--8HeEGAFF1N2Ut1tR24tm63/Rust-GCC.github.io",
+    "startTime": "2023-09-17T16:39:14.816Z",
+    "endTime": "2023-09-17T16:39:17.326Z",
+    "childProcessPid": 89411,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/important_libs/workingdir/--Rust-GCC--Rust-GCC.github.io--89411",
+    "executionErrors": []
+}

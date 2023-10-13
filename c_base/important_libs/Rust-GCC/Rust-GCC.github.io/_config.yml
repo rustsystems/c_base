@@ -1,0 +1,7 @@
+title: GCC Front-End For Rust
+description: Alternative Rust Compiler for GCC
+logo: /images/logo.png
+repository: https://github.com/Rust-GCC
+baseurl: ""
+plugins:
+  - jekyll-feed
