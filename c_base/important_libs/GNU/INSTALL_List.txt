@@ -1,0 +1,5 @@
+gettext             /usr/local/bin/gettextize
+m4                  /usr/local/bin/m4
+libtool             /usr/local/bin/libtool --help 
+autoconf            /usr/local/bin/autoconf
+help2man            /usr/local/bin/help2man 
