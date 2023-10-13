@@ -1,0 +1,12 @@
+# pack-refs with: peeled fully-peeled sorted 
+4d64a170278d4238b75c2022a776430ede773d6a refs/remotes/origin/docs/unity_assertion_reference_fixes
+2775e1b05875cf45afce7153e36af76ddbfdba26 refs/remotes/origin/master
+a7639eeb54f532b57859a85f6de1e41df66d61cc refs/remotes/origin/platform_matrix
+731e0f6b5f96b83adb94c209b582765c14215b2c refs/tags/v2.1.0
+661c1b2d568693e3b6b631ae66f6872b194674f1 refs/tags/v2.4.0
+f96c05532b3e00c9ca77e58fc07f9401cd46510d refs/tags/v2.4.1
+60b13f0685246b009810aecbffafe17fb665d970 refs/tags/v2.4.2
+287e076962ec711cd2bdf08364a8df9ce51e106b refs/tags/v2.4.3
+c3d7662a1e692aa0934fa61a2a67229f3b73a5a2 refs/tags/v2.5.0
+cf949f45ca6d172a177b00da21310607b97bc7a7 refs/tags/v2.5.1
+0b899aec14d3a9abb2bf260ac355f0f28630a6a3 refs/tags/v2.5.2

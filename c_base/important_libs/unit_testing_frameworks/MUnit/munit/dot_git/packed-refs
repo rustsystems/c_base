@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+fbbdf1467eb0d04a6ee465def2e529e4c87f2118 refs/remotes/origin/master
+fbbdf1467eb0d04a6ee465def2e529e4c87f2118 refs/remotes/origin/staging
+129f2a7716f107300fdfe56196485afd49555a24 refs/remotes/origin/wip/appveyor
+a2d378740055777f841626412517b437310975cf refs/remotes/origin/wip/msvc-old
+72edc3ae9f2f404404652d708254c512e6a78246 refs/remotes/origin/wip/psnip-clock
+53fd975883649217b4171d1733b4d7391bacc470 refs/tags/v0.2.0
+^ad67a3a2ca6b0e106c9c8d515772359eadcefad6

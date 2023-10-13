@@ -1,0 +1,18 @@
+# pack-refs with: peeled fully-peeled sorted 
+69425fe9a1565e3a29ddf3af80dc4fc8c3b05dc2 refs/remotes/origin/actions
+da479a8c45257abf2cd55c85e4fb0dd666112f3f refs/remotes/origin/add-path
+1465d32bb7be9fb5560bab53bef55ef223640e44 refs/remotes/origin/add-path-1
+84b64fd15adb2dd7112c44a7a545aa1d9d8c28e6 refs/remotes/origin/bcmake-appveyor
+1da77e49211e0caab56e53b88b1e8bbb366e7d7f refs/remotes/origin/fail_if-no-args
+19c27220184bde898e6db302407fb32fb7802e40 refs/remotes/origin/gh-pages
+455005dc29dc6727de7ee36fee4b49a13b39f73f refs/remotes/origin/master
+dcf59adfd5f8a164a41361333a6c0d58e9fbd66f refs/remotes/origin/pcre
+b2b21990e1ced25a7defb7e8ca60272da1e63c99 refs/remotes/origin/pre-0.15.2
+ad83496d1aea4d1d700d6acbec526fa2a2271968 refs/tags/0.10.0
+cbc78bab899858f3ece1f218168da54aac757bb0 refs/tags/0.11.0
+673dce1d61781c32b449bef0ee8711dc7e689170 refs/tags/0.12.0
+90d03f3fe002c33224432753ebfa21ebb5c32238 refs/tags/0.13.0
+d86594e5b29d50ddbd6276ab2d2cf5c278f7656c refs/tags/0.14.0
+aa8657b149ad290bee7c6855ad97f10f1522ebbb refs/tags/0.15.0
+9843d4811d30e8c99d79f325ad2063805f77f4ea refs/tags/0.15.1
+11970a7e112dfe243a2e68773f014687df2900e8 refs/tags/0.15.2
