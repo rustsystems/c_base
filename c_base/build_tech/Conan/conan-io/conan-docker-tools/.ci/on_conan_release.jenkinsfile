@@ -1,0 +1,107 @@
+/*
+
+    Triggered whenever a new Conan version is uploaded to pypi.
+
+*/
+
+node('Linux') {
+    stage('Input parameters') {
+        echo """
+        - conan_version: ${params.conan_version}
+        - build_new_images: ${params.build_new_images}
+        - build_old_images: ${params.build_old_images}
+        """
+    }
+
+    stage('New docker images') {
+        // Trigger the build
+        if (params.build_new_images || params.build_old_images) {
+            // We need to wait for a while, to be sure that new release will be returned from the API
+            sleep time: 120, unit: 'SECONDS'
+            if (params.build_new_images) {
+                build(job: 'ConanCenterIndex', wait: false)
+            }
+            if (params.build_old_images) {
+                build(job: 'ConanCenterIndexLegacy', wait: false)
+            }
+        }
+    }
+
+    stage('Upgrade default conan version') {
+        // Here we need to create a PR modifying the Conan version
+
+        // Clone, save and check if diff
+        checkout([$class           : 'GitSCM',
+                  branches         : [[name: '*/master']],
+                  userRemoteConfigs: [[credentialsId: 'conanci-gh-token', url: 'https://github.com/conan-io/conan-docker-tools.git']],
+                  extensions       : [[$class           : 'RelativeTargetDirectory',
+                                       relativeTargetDir: 'conan-docker-tools']],
+        ])
+
+        String content1 = readFile(file: 'conan-docker-tools/modern/.env')
+        content1 = content1.replaceAll(/CONAN_VERSION=\d+\.\d+.\d+/, "CONAN_VERSION=${params.conan_version}")
+        content1 = content1.replaceAll(/DOCKER_TAG=\d+\.\d+.\d+/, "DOCKER_TAG=${params.conan_version}")
+        writeFile(file: 'conan-docker-tools/modern/.env', text: content1)
+
+        String content2 = readFile(file: 'conan-docker-tools/legacy/.env')
+        content2 = content2.replaceAll(/CONAN_VERSION=\d+\.\d+.\d+/, "CONAN_VERSION=${params.conan_version}")
+        content2 = content2.replaceAll(/DOCKER_BUILD_TAG=\d+\.\d+.\d+/, "DOCKER_BUILD_TAG=${params.conan_version}")
+        writeFile(file: 'conan-docker-tools/legacy/.env', text: content2)
+
+        String branchName = "bot/release-${params.conan_version}".replaceAll(/\./, '_')
+        dir('conan-docker-tools') {
+            sh "git checkout -b ${branchName}"
+            sh "git diff"
+
+            sh 'git config --local user.email "luism+1@jfrog.com"'
+            sh 'git config --local user.name "Release Bot"'
+            sh 'git commit -am "[up conan] Update Conan version"'
+
+            withCredentials([usernamePassword(credentialsId: 'conanci-gh-token', usernameVariable: 'GH_USER', passwordVariable: 'GH_PASS')]) {
+                    sh "git remote set-url origin https://$GH_USER:$GH_PASS@github.com/conan-io/conan-docker-tools.git"
+                    sh "git push origin ${branchName}"
+            }
+        }
+
+        // Open PR in Github
+        int prNumber = null
+        stage('Open PR in Github') {
+            Map data = [:]
+            data.title = "[up conan] Update Conan version (${params.conan_version})" as String
+            data.head = branchName
+            data.base = 'master'
+            data.body = '''\
+                New Conan version released.
+
+                ---
+
+                <sup>This PR has been created automatically by CI</sup>
+                '''.stripIndent() as String
+
+            String jsonContent = writeJSON(json: data, returnText: true)
+            def response = httpRequest(
+                url: 'https://api.github.com/repos/conan-io/conan-docker-tools/pulls',
+                httpMode: 'POST',
+                authentication: 'conanci-gh-token',
+                timeout: 20,
+                requestBody: jsonContent,
+            )
+
+            Map<String, Object> responseData = readJSON(text: response.content)
+            prNumber = responseData.number as int
+        }
+
+        stage('Request reviewers') {
+            Map data = [:]
+            data.reviewers = ['uilianries']
+            String jsonContent = writeJSON(json: data, returnText: true)
+            httpRequest(
+                url: "https://api.github.com/repos/conan-io/conan-docker-tools/pulls/${prNumber}/requested_reviewers",
+                httpMode: 'POST',
+                authentication: 'conanci-gh-token',
+                timeout: 20,
+                requestBody: jsonContent,
+            )
+        }
+    }
+}

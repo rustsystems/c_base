@@ -1,0 +1,108 @@
+echo "LAUNCHING: ${env.JOB_NAME}"
+def modules = ["conan_tests"]
+def slaves = ['Linux', 'Windows']
+def pyvers = ['py37']
+def numcores = "1"
+def branch = env.JOB_NAME.split("_")[1].replaceAll("-", "/")
+def build_short = env.JOB_NAME.split("_")[1].replaceAll("\\.", "").replaceAll("-", "").replace("release", "rl")
+echo "-- BUILD SHORT: ${build_short}"
+
+modules = "\"" + modules.join(" ") + "\""
+
+def win_tmp_base = "D:/J/t2/${build_short}/"
+echo "-- win_tmp_base: ${win_tmp_base}"
+
+def rest_tmp_base = "/tmp/"
+def runner = "jenkins/runner.py"
+
+// First test Artifactory
+try{
+    node("LinuxSlave") {
+        stage("Testing revisions with Artifactory"){
+            checkout scm
+            // FIXME: using 7.55.13 instead of latest as license stopped working in 7.55.14
+            def arti_versions = (branch != 'develop2' && !branch.startsWith('release/2.')) ? ["7.55.13", "7.47.12", "7.37.17" , "7.27.10", "7.17.5", "7.2.1", "6.18.1", "6.9.0"] : ["7.55.13"]
+            for (arti_version in arti_versions){
+                echo "Testing Artifactory ${arti_version} with Conan '${branch}'"
+                withEnv(["CONAN_GIT_TAG=${branch}".toString(), 'CONAN_GIT_REPO=https://github.com/conan-io/conan.git', "ARTIFACTORY_VERSION=${arti_version}"]) {
+                    withCredentials([string(credentialsId: 'ART_LICENSE', variable: 'ART_LICENSE')]) {
+                         lock(label: 'ArtifactoryRunning', quantity: 1) {
+                             sh(script: "cd artifactory_tests && ./run_tests.sh")
+                         }
+                    }
+                }
+            }
+        }
+    }
+}
+catch(e){
+    def subject = "FAILED ARTIFACTORY: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+    def summary = "${subject} (${env.BUILD_URL}), Conan Branch: ${branch}"
+    slackSend (color: '#FF0000', message: summary)
+    throw e
+}
+
+// these tests are not prepared for Conan 2.0, omit them
+if (branch != 'develop2' && !branch.startsWith('release/2.'))
+{
+    def builders = [:]
+    try{
+        for (x in slaves) {
+            def slave = x
+            for (y in pyvers) {
+                def pyver = y
+                builders["${slave} - ${pyver}"] = {
+                    node(slave) {
+                        stage("${slave} - ${pyver}"){
+                            step ([$class: 'WsCleanup'])
+                            checkout scm
+                            def bn = env.BUILD_NUMBER
+                            def base_dir = (slave == "Windows") ? win_tmp_base : rest_tmp_base
+                            def workdir = "${base_dir}/${bn}/${pyver}"
+
+                            if(slave == "Linux"){
+                                sh(script: "docker pull conanio/conantests")
+                                docker.image('conanio/conantests').inside("-e CONAN_USER_HOME=${WORKSPACE}") {
+                                    sh(script: "python ${runner} ${modules} ${pyver} ${branch} ${workdir} --num_cores=${numcores}")
+                                }
+                            }
+                            else if(slave == "Windows"){
+                                try{
+                                withEnv(["CONAN_TEST_FOLDER=${workdir}"]){
+                                    bat(script: "python ${runner} ${modules} ${pyver} ${branch} \"${workdir}\" --num_cores=${numcores}")
+                                }
+                                }
+                                finally{
+                                    bat(script: "rd /s /q \"${workdir}\"")
+                                }
+                            }
+                            else if(slave == "Macos"){
+                                try{
+                                withEnv(['PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin']) {
+                                    sh(script: "python ${runner} ${modules} ${pyver} ${branch} ${workdir} --num_cores=${numcores}")
+                                }
+                                }
+                                finally{
+                                sh(script: "rm -rf ${workdir}")
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        parallel builders
+
+    }
+    catch(e){
+        def subject = "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+        def summary = "${subject} (${env.BUILD_URL}), Conan Branch: ${branch}"
+        slackSend (color: '#FF0000', message: summary)
+        throw e
+    }
+}
+
+
+def subject = "SUCCESS ${env.JOB_NAME}! Another day with a green ${branch}!"
+def summary = "${subject} (${env.BUILD_URL})"
+slackSend (color: '#00FF00', message: summary)

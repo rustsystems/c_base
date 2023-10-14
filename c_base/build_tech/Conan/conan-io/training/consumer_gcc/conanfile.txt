@@ -1,0 +1,10 @@
+[requires]
+boost/1.72.0
+poco/1.9.4
+
+[generators]
+
+
+[options]
+boost:shared=False
+poco:shared=False

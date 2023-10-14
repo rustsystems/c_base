@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/conan-center-index undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-center-index",
+    "repo": "https://github.com/conan-io/conan-center-index",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-center-index",
+    "startTime": "2023-09-16T14:25:14.925Z",
+    "endTime": "2023-09-16T14:26:12.400Z",
+    "childProcessPid": 62714,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--conan-center-index--62714",
+    "executionErrors": []
+}

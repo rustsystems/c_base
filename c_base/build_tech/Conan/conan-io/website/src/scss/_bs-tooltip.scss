@@ -1,0 +1,45 @@
+$tt-text-color: black;
+$tt-border-color: #e3e4e4;
+$tt-bg-color: white;
+$arrow-border-color: #e3e4e4;
+$arrow-bg-color: white;
+
+.tooltip {
+  width: auto;
+  max-width: 90vw;
+  opacity: 1 !important;
+  white-space: pre-line;
+  .tooltip-inner {
+    background: $tt-bg-color;
+    color: $tt-text-color;
+    border: 2px solid $tt-border-color;
+    // max-width: 250px;
+    text-align: left;
+    width: auto;
+    max-width: 90vw;
+    white-space: pre-line;
+  } 
+  .arrow {
+    width: 11px;
+    height: 11px;
+    border: 2px solid $arrow-border-color;
+    bottom: 1px;
+    &:before {
+      width: 11px;
+      height: 11px;
+      background: $arrow-bg-color;
+      border: 0;
+    }
+  }
+  &.bs-tooltip-top {
+    .arrow {
+      transform: rotate(-135deg);
+    }
+  }
+  &.bs-tooltip-bottom {
+    .arrow {
+      transform: rotate(135deg);
+      top: 2px;
+    }
+  }
+}

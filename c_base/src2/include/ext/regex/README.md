@@ -1,0 +1,1 @@
+A regex engine. Support all the regexs. Do it in a way that makes outward the principles of a "regular language".

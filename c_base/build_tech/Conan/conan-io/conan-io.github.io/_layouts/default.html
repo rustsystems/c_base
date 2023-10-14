@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+    <div class="page-content{% if layout.comments %} content-post{% else %} content-home{% endif %}">
+      <div class="wrapper asfasffasfasfsfas">
+        {{ content }}
+      </div>
+    </div>
+
+
+    {% include footer.html %}
+
+    <script id="dsq-count-scr" src="//conanstaging.disqus.com/count.js" async></script>
+    <script src="{{ "/js/jquery.min.js" | prepend: site.baseurl }}" ></script>
+    <script src="{{ "/js/select2.min.js" | prepend: site.baseurl }}" ></script>
+    <script src="{{ "/js/scripts.js" | prepend: site.baseurl }}" ></script>
+
+
+  </body>
+
+</html>

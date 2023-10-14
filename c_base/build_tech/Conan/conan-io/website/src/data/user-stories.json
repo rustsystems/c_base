@@ -1,0 +1,16 @@
+[
+  {
+    "title": "RTI Story",
+    "description": "Speeding Multi-Platform Releases&nbsp;for Industrial IoT with Conan&nbsp;and&nbsp;Artifactory",
+    "url": "user-stories/rti.html",
+    "imgSrc": "../../img/user-stories/rti-m.png",
+    "imgSrcS": "../../img/user-stories/rti-s.png"
+  },
+  {
+    "title": "Customer Success Story: TomTom",
+    "description": "TomTom fast tracks their delivery cycle with Conan",
+    "url": "user-stories/tomtom.html",
+    "imgSrc": "../../img/user-stories/tomtom-m.png",
+    "imgSrcS": "../../img/user-stories/tomtom-s.png"
+  }
+]

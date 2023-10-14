@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/code-of-conduct undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/code-of-conduct",
+    "repo": "https://github.com/conan-io/code-of-conduct",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/code-of-conduct",
+    "startTime": "2023-09-16T14:25:09.104Z",
+    "endTime": "2023-09-16T14:25:09.718Z",
+    "childProcessPid": 62704,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--code-of-conduct--62704",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/python-patch-ng undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/python-patch-ng",
+    "repo": "https://github.com/conan-io/python-patch-ng",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/python-patch-ng",
+    "startTime": "2023-09-16T14:28:00.602Z",
+    "endTime": "2023-09-16T14:28:01.738Z",
+    "childProcessPid": 62847,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--python-patch-ng--62847",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/libhello undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/libhello",
+    "repo": "https://github.com/conan-io/libhello",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/libhello",
+    "startTime": "2023-09-16T14:27:58.640Z",
+    "endTime": "2023-09-16T14:27:59.255Z",
+    "childProcessPid": 62830,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--libhello--62830",
+    "executionErrors": []
+}

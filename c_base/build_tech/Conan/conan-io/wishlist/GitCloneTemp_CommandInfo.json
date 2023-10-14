@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/wishlist undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/wishlist",
+    "repo": "https://github.com/conan-io/wishlist",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/wishlist",
+    "startTime": "2023-09-16T14:28:14.553Z",
+    "endTime": "2023-09-16T14:28:15.116Z",
+    "childProcessPid": 62885,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--wishlist--62885",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/modular-boost undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/modular-boost",
+    "repo": "https://github.com/conan-io/modular-boost",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/modular-boost",
+    "startTime": "2023-09-16T14:28:00.001Z",
+    "endTime": "2023-09-16T14:28:00.602Z",
+    "childProcessPid": 62842,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--modular-boost--62842",
+    "executionErrors": []
+}

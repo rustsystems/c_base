@@ -1,0 +1,191 @@
+<!-- 
+companyName
+metaTitle
+metaDescription
+pageTitle
+imgSrc
+downloadFileURL
+downloadFileImgSrc
+contentHTML
+-->
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+  <meta
+    name="title"
+    content="metaDescription"
+  >
+  <meta
+    name="description"
+    content="@@metaDescription" 
+  >
+  <link href="../favicon.png" rel="shortcut icon" type="image/png" />
+  <link href="@@fullPageURL" hreflang="en" rel="alternate" />
+  <title>@@pageTitle</title>
+
+  <link rel="canonical" href="@@fullPageURL" />
+
+  <link rel="stylesheet" href="../css/all.css">
+
+  <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-WK44ZFM');</script>
+
+</head>
+
+<body class="single-user-story">
+<noscript> <iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WK44ZFM"
+      style="display:none;visibility:hidden" width="0"></iframe>
+</noscript>
+  
+  @@include('./header.html')
+
+  <section class="breadcrumbs pt-5">
+    <div class="container">
+      <a class="dark-blue" href="../user-stories.html"> &lt; Back to all resources </a>
+    </div>
+  </section>
+
+  <section class="user-story-top py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <h1>
+            <span>@@pageTitle</span>
+          </h1>
+        </div>
+        <div class="col-lg-3">
+          <div class="position-relative">
+            <div class="position-absolute d-none d-lg-block">
+              <div class="download text-center">
+                <div class="image pb-3">
+                  <img
+                    class="img-fluid"
+                    alt="Download File"
+                    height="405"
+                    src="@@downloadFileImgSrc"
+                    width="317"
+                    height="405"
+                  >
+                </div>
+                <a
+                  class="btn conan-blue-gradient-bg""
+                  href="@@downloadFileURL"
+                  rel="noopener noreferrer"
+                  rel="noopener"
+                  target="_blank"
+                >
+                  Download
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container pt-5">
+      <div class="d-flex justify-content-center align-items-center top-together-images">
+        <div class="pl-2"></div>
+        <img
+          alt="Conan"
+          height="115"
+          src="../../favicon.png"
+        >
+        <div class="plus mx-3">+</div>
+        <img
+          alt="@@companyName"
+          height="115"
+          src="@@imgSrc"
+        >
+      </div>
+    </div>
+  </section>
+
+  <section class="user-story-content">
+    <div class="container py-5">
+      
+      <div class="row justify-content-between">
+        <div class="col-lg-8">
+          <div class="content">
+            @@contentHTML 
+          </div>
+        </div>
+        <div class="col-lg-4 d-lg-none mt-4">
+          <div class="download text-center border-top pt-4">
+            <div class="image pb-3">
+              <img src="@@downloadFileImgSrc" alt="Download File" class="img-fluid">
+            </div>
+            <a
+              class="btn conan-blue-gradient-bg"
+              href="@@downloadFileURL"
+              rel="noopener noreferrer"
+              rel="noopener"
+              target="_blank"
+            >
+              Download
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div> 
+  </section>
+
+
+  @@include('./footer.html', {"webRoot": ".."})
+
+  <div
+    id="openSourceSubscribeModal"
+    class="modal px-2 fade"
+    aria-hidden="true"
+    aria-labelledby="modalSuccessTitleFH"
+    role="dialog"
+    tabindex="-1"
+  >
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-body p-0 position-relative">
+                  <button type="button" class="close position-absolute" data-dismiss="modal" aria-label="Close">
+                    X
+                  </button>
+                  <div class="splitter d-flex h-100 flex-wrap">
+                      <!-- LEFT -->
+                      <div class="left d-flex justify-content-center align-items-center text-center p-3">
+                          <div>
+                              <p class="top text-white">
+                                <strong> Thank You For Downloading </strong>
+                              </p>
+                              <p class="top text-white">
+                                Your download should <br> begin immediately.
+                              </p>
+                          </div>
+                      </div>
+                      <!-- RIGHT -->
+                      <div class="right d-flex justify-content-center text-center text-lg-left align-items-center p-4">
+                          <div class="mx-auto">
+                              <h2 id="modalSuccessTitleFH">Stay Up to Date</h2>
+                              <p class="open-sans">
+                                Sign up for product updates and new features.
+                              </p>
+                              
+                              <div class="os-form">
+                                <form id="mktoForm_3511"></form>
+                                <p id="subscribeSuccess" class="black bold mb-0"></p> 
+                              </div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <script src="../js/all.js"></script>
+
+  
+
+</body>
+
+</html>

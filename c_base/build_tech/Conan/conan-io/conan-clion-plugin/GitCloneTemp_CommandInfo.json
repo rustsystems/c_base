@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/conan-clion-plugin undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-clion-plugin",
+    "repo": "https://github.com/conan-io/conan-clion-plugin",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-clion-plugin",
+    "startTime": "2023-09-16T14:26:12.402Z",
+    "endTime": "2023-09-16T14:26:14.739Z",
+    "childProcessPid": 62725,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--conan-clion-plugin--62725",
+    "executionErrors": []
+}

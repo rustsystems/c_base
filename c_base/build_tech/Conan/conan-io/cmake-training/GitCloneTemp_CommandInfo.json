@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/cmake-training undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/cmake-training",
+    "repo": "https://github.com/conan-io/cmake-training",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/cmake-training",
+    "startTime": "2023-09-16T14:25:08.375Z",
+    "endTime": "2023-09-16T14:25:09.103Z",
+    "childProcessPid": 62699,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--cmake-training--62699",
+    "executionErrors": []
+}

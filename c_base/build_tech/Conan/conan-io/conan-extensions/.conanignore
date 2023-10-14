@@ -1,0 +1,13 @@
+.idea/*
+.github/*
+venv/*
+tests/*
+.gitignore
+LICENSE
+*README.md*
+*.DS_Store*
+*.pytest_cache*
+tmp/*
+tmp2/*
+.vscode/*
+.idea/*

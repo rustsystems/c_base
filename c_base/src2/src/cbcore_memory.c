@@ -26,6 +26,7 @@ CBSize SizeOfType(CBDataTypeKinds typeKind) {
             size = sizeof(CBUnsignedInteger);
             break;
         case UnsignedIntegerPtr:
+        
             size = sizeof(CBUnsignedIntegerPtr);
             break;
 

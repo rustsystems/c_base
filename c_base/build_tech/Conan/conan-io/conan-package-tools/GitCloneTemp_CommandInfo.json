@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/conan-package-tools undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-package-tools",
+    "repo": "https://github.com/conan-io/conan-package-tools",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-package-tools",
+    "startTime": "2023-09-16T14:26:22.254Z",
+    "endTime": "2023-09-16T14:26:23.730Z",
+    "childProcessPid": 62746,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--conan-package-tools--62746",
+    "executionErrors": []
+}

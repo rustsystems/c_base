@@ -1,0 +1,8 @@
+_site
+.sass-cache
+.jekyll-metadata
+.project
+.idea
+.DS_Store
+.jekyll-cache
+_sass/koala-config.json

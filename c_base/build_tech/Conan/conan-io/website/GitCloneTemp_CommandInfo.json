@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/website undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/website",
+    "repo": "https://github.com/conan-io/website",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/website",
+    "startTime": "2023-09-16T14:28:10.954Z",
+    "endTime": "2023-09-16T14:28:14.552Z",
+    "childProcessPid": 62878,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--website--62878",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/conan-docker-tools undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-docker-tools",
+    "repo": "https://github.com/conan-io/conan-docker-tools",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/conan-docker-tools",
+    "startTime": "2023-09-16T14:26:14.740Z",
+    "endTime": "2023-09-16T14:26:16.544Z",
+    "childProcessPid": 62730,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--conan-docker-tools--62730",
+    "executionErrors": []
+}

@@ -1,0 +1,10 @@
+{
+    "commandText": "git clone --progress --verbose https://github.com/conan-io/training-ci undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/training-ci",
+    "repo": "https://github.com/conan-io/training-ci",
+    "targetPath": "undefined\\cona--09-16-2023--qAANtAVTNvkFSSH6prHiYq/training-ci",
+    "startTime": "2023-09-16T14:28:04.935Z",
+    "endTime": "2023-09-16T14:28:07.097Z",
+    "childProcessPid": 62863,
+    "commandLogFilePath": "/Users/brian/dev_space/Rust-Systems/c_base/build_tech/Conan/workingdir/--conan-io--training-ci--62863",
+    "executionErrors": []
+}
